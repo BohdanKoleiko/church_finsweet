@@ -1,0 +1,117 @@
+@import "../../scss/variables";
+
+.blog-card {
+   position: relative;
+   overflow: hidden;
+
+   &:not(&__preview) {
+      max-width: 302px;
+      padding: 48px 32px;
+      cursor: pointer;
+
+      .event__schedule {
+         top: 24px;
+         right: 26px;
+      }
+
+      .preview-img {
+         display: none;
+      }
+
+      .blog-card__release-info {
+         flex-direction: column;
+         text-transform: none;
+         gap: 4px;
+         margin: 0;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         bottom: -16px;
+         width: 100%;
+         height: 16px;
+         background-color: $orange-90;
+         transition: bottom 0.2s ease-out;
+      }
+
+      &:hover {
+         &::before {
+            bottom: 0;
+         }
+      }
+   }
+
+   &__heading {
+      margin-bottom: 16px;
+   }
+
+   &__sup-heading {
+      display: inline-block;
+      background: linear-gradient(109.61deg, $red-100 -53.83%, $orange-100 62.61%);
+      background-clip: text;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: transparent;
+   }
+
+   &__descr {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      opacity: 0.78;
+      &:not(:last-child) {
+         margin-bottom: 48px;
+      }
+   }
+
+   &__release-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      margin-right: 50px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      opacity: 0.8;
+   }
+
+   &_white {
+      background-color: $white;
+   }
+
+   &_light-orange {
+      background-color: $orange-10;
+   }
+}
+
+.blog-card.blog-card__preview {
+   display: flex;
+   flex-direction: row-reverse;
+   padding: 56px;
+   gap: 48px;
+
+   > .preview-img {
+      flex: 1 1 100%;
+      display: block;
+      overflow: hidden;
+      max-width: 572px;
+      max-height: 384px;
+
+      > img {
+         display: block;
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+      }
+   }
+
+   > .preview-descr {
+      flex: 0 2 auto;
+      padding: 29px 29px 29px 0;
+      min-width: 450px;
+   }
+}

@@ -1,0 +1,26 @@
+@import "./scss/variables";
+
+.blog {
+   &__wrapper {
+      padding: 128px 0;
+   }
+
+   &__sup-title {
+      font-weight: 400;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+   }
+
+   &__btn {
+      max-width: 205px;
+   }
+}
+
+.blog-posts {
+   &__blog-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+   }
+}

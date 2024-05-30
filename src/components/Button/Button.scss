@@ -1,0 +1,44 @@
+@import "../../scss/variables";
+
+.button {
+   width: 100%;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 100%;
+   text-transform: uppercase;
+   text-align: center;
+   outline: none;
+   border: 0;
+   border-radius: 12px;
+   cursor: pointer;
+
+   transition: all 0.2s ease-in-out;
+
+   &__primary {
+      background-color: $primary-btn_bg-color;
+      color: $primary-btn_txt-color;
+
+      &:hover {
+         background-color: $primary-btn_bg-color_hover;
+      }
+   }
+
+   &__secondary {
+      background-color: $secondary-btn_bg-color;
+      color: $secondary-btn_txt-color;
+
+      &:hover {
+         color: $secondary-btn_txt-color_hover;
+      }
+   }
+
+   &_p20 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+   }
+
+   &_p24 {
+      padding-top: 24px;
+      padding-bottom: 24px;
+   }
+}
