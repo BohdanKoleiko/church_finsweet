@@ -1,0 +1,28 @@
+@import "./scss/variables";
+
+.home-main {
+   flex-grow: 1;
+}
+
+.home-hero {
+   height: 663px;
+
+   &__text {
+      position: relative;
+      padding-left: 30px;
+      margin-top: 64px;
+      max-width: 338px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 12px;
+         border: 1px solid $orange-50;
+         width: 18px;
+      }
+   }
+}

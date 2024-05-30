@@ -1,0 +1,51 @@
+.seremon-hero {
+   height: 419px;
+}
+
+.seremon-preview {
+   padding-top: 128px;
+
+   &__title {
+      max-width: 554px;
+      margin: 0 auto 64px;
+   }
+
+   &__sup-title {
+      text-transform: uppercase;
+      margin-bottom: 16px;
+   }
+
+   &__event {
+      display: flex;
+      max-height: 512px;
+   }
+
+   &__event-button {
+      margin-top: 32px;
+      max-width: 191px;
+   }
+}
+
+.seremon-events {
+   padding-top: 208px;
+   padding-bottom: 128px;
+
+   &__title {
+      margin-bottom: 64px;
+      text-align: center;
+   }
+
+   &__wrapper {
+      display: flex;
+      gap: 24px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+
+      > div {
+         flex: 1 0 auto;
+         scroll-snap-align: start;
+      }
+   }
+}

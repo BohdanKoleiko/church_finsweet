@@ -1,0 +1,100 @@
+@import "./scss/font";
+@import "./scss/variables";
+
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+
+   font-family: "Roboto Condensed";
+}
+
+html,
+body,
+#root {
+   min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+   letter-spacing: -0.01em;
+   text-transform: uppercase;
+}
+
+h1 {
+   font-size: 64px;
+   line-height: 128%;
+}
+
+h2 {
+   font-size: 48px;
+   line-height: 133%;
+}
+
+h3 {
+   font-size: 40px;
+   line-height: 140%;
+}
+
+h4 {
+   font-size: 32px;
+   line-height: 137%;
+}
+
+h5 {
+   font-size: 24px;
+   line-height: normal;
+}
+
+h6 {
+   font-size: 16px;
+   line-height: 150%;
+}
+
+p {
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+.container {
+   height: 100%;
+   max-width: 1320px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+ul > li {
+   list-style-type: none;
+}
+
+.sup-heading {
+   text-transform: uppercase;
+   margin-bottom: 16px;
+}
+
+.main {
+   flex-grow: 1;
+}
+
+.title {
+   margin-bottom: $p64;
+}
+
+.sup-title {
+   margin-bottom: $p16;
+   text-transform: uppercase;
+}

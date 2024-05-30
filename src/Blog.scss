@@ -1,0 +1,32 @@
+@import "./scss/variables";
+
+.blog {
+   &__wrapper {
+      padding-top: $p128;
+   }
+
+   &__sup-title {
+      font-weight: 400;
+      font-size: $p16;
+      text-transform: uppercase;
+      margin-bottom: $p16;
+   }
+
+   &__btn {
+      max-width: 205px;
+   }
+}
+
+.blog-posts {
+   padding-top: $p128;
+
+   &__sup-title {
+      margin-bottom: $p16;
+   }
+
+   &__blog-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+   }
+}

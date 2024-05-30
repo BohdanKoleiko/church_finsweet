@@ -1,0 +1,66 @@
+@import "../../scss/variables";
+
+.header {
+   background-color: $black-50;
+
+   &__wrapper {
+      display: flex;
+   }
+
+   &__logo-wrapper {
+      display: flex;
+      align-items: center;
+      padding: $p12 0;
+   }
+
+   &__logo {
+      width: 134px;
+      height: 32px;
+
+      svg,
+      img {
+         display: block;
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+      }
+   }
+
+   &__nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      border-left: 2px solid #ffffff18;
+      margin-left: 64px;
+      padding: $p12 0;
+      flex: 1 1 auto;
+   }
+
+   &__nav {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      margin-left: $m64;
+   }
+
+   &__nav-link {
+      font-weight: 400;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $white;
+
+      transition: $transition-all;
+
+      &:hover {
+         color: $orange-50;
+      }
+
+      &.active {
+         color: $orange-50;
+      }
+   }
+
+   &__contact-btn {
+      max-width: 180px;
+   }
+}
