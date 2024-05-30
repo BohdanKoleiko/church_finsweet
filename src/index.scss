@@ -1,4 +1,5 @@
 @import "./scss/font";
+@import "./scss/variables";
 
 *,
 *::before,
@@ -90,5 +91,10 @@ ul > li {
 }
 
 .title {
-   margin-bottom: 64px;
+   margin-bottom: $p64;
+}
+
+.sup-title {
+   margin-bottom: $p16;
+   text-transform: uppercase;
 }
