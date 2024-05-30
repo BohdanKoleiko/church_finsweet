@@ -4,12 +4,10 @@
    flex-grow: 1;
 }
 
-.home {
-   &__intro {
-      height: 663px;
-   }
+.home-hero {
+   height: 663px;
 
-   &__intro-text {
+   &__text {
       position: relative;
       padding-left: 30px;
       margin-top: 64px;

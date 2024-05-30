@@ -3,15 +3,17 @@ import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
 import Event from "./components/Event/Event.tsx";
 import Button from "./components/Button/Button.tsx";
+import BlogCard from "./components/BlogCard/BlogCard.tsx";
 import "./Home.scss";
 import { events } from "./BD/events.js";
+import { blogs } from "./BD/blogs.js";
 
 const Home = function (props) {
    props.setBGColor("white");
 
    return (
       <main className="home-main">
-         <section className="home__intro">
+         <section className="home-hero">
             <Hero
                backgroundImg="./images/hero-img.jpg"
                backgroundPosition="center"
@@ -23,7 +25,7 @@ const Home = function (props) {
                headingText="Become a part of our community"
                supHeadingText="Welcome to our CHURCH"
             >
-               <div className="home__intro-text">
+               <div className="home-hero__text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
                </div>
             </Hero>
@@ -37,7 +39,7 @@ const Home = function (props) {
                   textPosition="center"
                   classNames="seremon-preview__title"
                >
-                  <div className="seremon-preview__sup-title">Upcoming SERMONS</div>
+                  <div className="sup-title">Upcoming SERMONS</div>
                </Heading>
 
                <div className="seremon-preview__event">
@@ -57,6 +59,40 @@ const Home = function (props) {
                         btn="secondary"
                      />
                   </Event>
+               </div>
+            </div>
+         </section>
+
+         <section className="blog-posts">
+            <div className="container">
+               <div>
+                  <Heading
+                     headingTxt="SHARE, INSPIRE, INNOVATE"
+                     HeadingType="h2"
+                     textPosition="center"
+                     classNames="title"
+                  >
+                     <div className="sup-title">Read our Blog</div>
+                  </Heading>
+
+                  <div className="blog-posts__blog-cards">
+                     {blogs.map((blog, i) =>
+                        i < 4 ? (
+                           ""
+                        ) : (
+                           <BlogCard
+                              blogCardSupTitle={blog.blogSupTitle}
+                              blogCardTitle={blog.blogTitle}
+                              blogDescription={blog.blogDescr}
+                              backgroundColor="light-orange"
+                              blogTypeHeading="h4"
+                              writer={blog.blogAuthor}
+                              releaseDate={blog.releaseDate}
+                              key={i}
+                           />
+                        ),
+                     )}
+                  </div>
                </div>
             </div>
          </section>
