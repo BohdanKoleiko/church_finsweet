@@ -2,14 +2,14 @@
 
 .blog {
    &__wrapper {
-      padding: 128px 0;
+      padding-top: $p128;
    }
 
    &__sup-title {
       font-weight: 400;
-      font-size: 16px;
+      font-size: $p16;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: $p16;
    }
 
    &__btn {
@@ -18,6 +18,12 @@
 }
 
 .blog-posts {
+   padding-top: $p128;
+
+   &__sup-title {
+      margin-bottom: $p16;
+   }
+
    &__blog-cards {
       display: flex;
       flex-wrap: wrap;
