@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import "./Heading.scss";
 
 interface HeadingProps {
@@ -10,7 +10,7 @@ interface HeadingProps {
    children?: any;
 }
 
-const Heading: FC<HeadingProps> = function (props) {
+const Heading = function (props: HeadingProps) {
    const { headingTxt, headingColor, HeadingType, textPosition, classNames } = props;
 
    return (
