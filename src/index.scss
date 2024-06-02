@@ -15,6 +15,7 @@ html,
 body,
 #root {
    min-height: 100%;
+   font-size: 16px;
 }
 
 h1,
@@ -74,7 +75,7 @@ p {
    height: 100%;
    max-width: 1320px;
    margin: 0 auto;
-   padding: 0 20px;
+   padding: 0 $p20;
 }
 
 ul > li {
@@ -83,7 +84,7 @@ ul > li {
 
 .sup-heading {
    text-transform: uppercase;
-   margin-bottom: 16px;
+   margin-bottom: $m16;
 }
 
 .main {
@@ -91,10 +92,42 @@ ul > li {
 }
 
 .title {
-   margin-bottom: $p64;
+   margin-bottom: $m64;
+
+   &_margin-16 {
+      margin-bottom: $m16;
+   }
+
+   &_margin-32 {
+      margin-bottom: $m32;
+   }
 }
 
 .sup-title {
-   margin-bottom: $p16;
+   margin-bottom: $m16;
    text-transform: uppercase;
+}
+
+.wysiwyg {
+   margin: 0 auto;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 150%;
+   opacity: 0.78;
+
+   &_margin-56 {
+      margin-bottom: $m56;
+   }
+
+   &_margin-48 {
+      margin-bottom: $m48;
+   }
+
+   &_margin-16 {
+      margin-bottom: $m16;
+   }
+
+   &_txt-center {
+      text-align: center;
+   }
 }
