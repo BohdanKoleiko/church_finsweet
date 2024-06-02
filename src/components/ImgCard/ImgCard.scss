@@ -1,0 +1,28 @@
+.img-card {
+   overflow: hidden;
+
+   &__img {
+      height: 100%;
+
+      > img {
+         display: block;
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &_big-size {
+      flex: 0 1 390px;
+      height: 55vw;
+      max-height: 512px;
+      border-radius: 32px;
+   }
+
+   &_middle-size {
+      flex: 0 1 293px;
+      height: 40vw;
+      max-height: 384px;
+      border-radius: 30px;
+   }
+}
