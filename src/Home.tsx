@@ -4,9 +4,11 @@ import Heading from "./components/Heading/Heading.tsx";
 import Event from "./components/Event/Event.tsx";
 import Button from "./components/Button/Button.tsx";
 import BlogCard from "./components/BlogCard/BlogCard.tsx";
+import ImgCards from "./components/ImgCards/ImgCards.tsx";
 import "./Home.scss";
 import { events } from "./BD/events.js";
 import { blogs } from "./BD/blogs.js";
+import { Link } from "react-router-dom";
 
 const Home = function (props) {
    props.setBGColor("white");
@@ -29,6 +31,46 @@ const Home = function (props) {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
                </div>
             </Hero>
+         </section>
+
+         <section className="welcome">
+            <div className="container">
+               <Heading
+                  headingTxt="Love and compassion"
+                  HeadingType="h2"
+                  textPosition="center"
+                  classNames="title title_margin-32"
+               >
+                  <div className="sup-title">Welcome to our CHURCH</div>
+               </Heading>
+               <p className="wysiwyg wysiwyg_margin-56 wysiwyg_txt-center welcome__wysiwyg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum.
+               </p>
+
+               <Button text="Read more" classNames="welcome__btn" />
+
+               <ImgCards aligningItems="top" classNames="welcome__img-cards" />
+
+               <Heading
+                  headingTxt="celebrate WITH US"
+                  HeadingType="h4"
+                  textPosition="center"
+                  classNames="title title_margin-16"
+               >
+                  <div className="sup-title">our mission & vision</div>
+               </Heading>
+               <p className="wysiwyg wysiwyg_margin-16 wysiwyg_txt-center welcome__wysiwyg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+               </p>
+
+               <Link to="#" className="welcome__link">
+                  Read More
+               </Link>
+            </div>
          </section>
 
          <section className="seremon-preview">
