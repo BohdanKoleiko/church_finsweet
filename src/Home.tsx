@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
 import Event from "./components/Event/Event.tsx";
@@ -8,11 +9,8 @@ import ImgCards from "./components/ImgCards/ImgCards.tsx";
 import "./Home.scss";
 import { events } from "./BD/events.js";
 import { blogs } from "./BD/blogs.js";
-import { Link } from "react-router-dom";
 
-const Home = function (props) {
-   props.setBGColor("white");
-
+const Home = function () {
    return (
       <main className="home-main">
          <section className="home-hero">
@@ -52,7 +50,7 @@ const Home = function (props) {
 
                <Button text="Read more" classNames="welcome__btn" />
 
-               <ImgCards aligningItems="top" classNames="welcome__img-cards" />
+               <ImgCards aligningItems="top" classNames="home__img-cards" />
 
                <Heading
                   headingTxt="celebrate WITH US"

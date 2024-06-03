@@ -1,7 +1,7 @@
 import React from "react";
 import "./NotFound.scss";
 
-const NotFound = function (props) {
+const NotFound = function () {
    return (
       <main className="not-found-main">
          <section>

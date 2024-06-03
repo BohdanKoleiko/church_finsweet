@@ -5,9 +5,7 @@ import Heading from "./components/Heading/Heading.tsx";
 import { blogs } from "./BD/blogs.js";
 import "./Blog.scss";
 
-const Blog = function (props) {
-   props.setBGColor("#F5F2F0");
-
+const Blog = function () {
    return (
       <main className="main">
          <section className="blog">

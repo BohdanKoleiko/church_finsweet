@@ -6,9 +6,7 @@ import Button from "./components/Button/Button.tsx";
 import { events } from "./BD/events.js";
 import "./Sermon.scss";
 
-const Sermon = function (props) {
-   props.setBGColor("white");
-
+const Sermon = function () {
    return (
       <main className="main">
          <section className="seremon-hero">
