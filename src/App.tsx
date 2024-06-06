@@ -10,22 +10,24 @@ import NotFound from "./NotFound.tsx";
 import "./App.scss";
 
 function App() {
-   const [bgColor, setbgColor] = useState("");
+   const [backgroundColor, setBackgroundColor] = useState("");
 
    const handleBgColor = function (color: string) {
-      setbgColor(color);
+      if (backgroundColor !== color) {
+         setBackgroundColor(color);
+      }
    };
 
    return (
       <BrowserRouter>
-         <div className="app" style={{ backgroundColor: `${bgColor}` }}>
-            <Header onClick={handleBgColor} />
+         <div className="app" style={{ backgroundColor }}>
+            <Header />
             <Routes>
-               <Route path="/" element={<Home />} />
-               <Route path="/about-us" element={<AboutUs />} />
-               <Route path="/sermon" element={<Sermon />} />
-               <Route path="/blog" element={<Blog />} />
-               <Route path="*" element={<NotFound />} />
+               <Route path="/" element={<Home setBGColor={handleBgColor} />} />
+               <Route path="/about-us" element={<AboutUs setBGColor={handleBgColor} />} />
+               <Route path="/sermon" element={<Sermon setBGColor={handleBgColor} />} />
+               <Route path="/blog" element={<Blog setBGColor={handleBgColor} />} />
+               <Route path="*" element={<NotFound setBGColor={handleBgColor} />} />
             </Routes>
             <Footer />
          </div>

@@ -10,9 +10,9 @@ import "./Home.scss";
 import { events } from "./BD/events.js";
 import { blogs } from "./BD/blogs.js";
 
-const Home = function () {
+const Home = function ({ setBGColor }) {
    return (
-      <main className="home-main">
+      <main className="home-main" onLoad={() => setBGColor("white")}>
          <section className="home-hero">
             <Hero
                backgroundImg="./images/hero-img.jpg"

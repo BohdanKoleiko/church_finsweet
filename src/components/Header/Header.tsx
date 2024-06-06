@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button/Button.tsx";
 import "./Header.scss";
 
-function Header(props) {
-   const { onClick } = props;
-
+function Header() {
    return (
       <header className="header">
          <div className="container">
@@ -31,28 +29,16 @@ function Header(props) {
 
                <div className="header__nav-wrapper">
                   <nav className="header__nav">
-                     <NavLink to="/" className="header__nav-link" onClick={() => onClick("white")}>
+                     <NavLink to="/" className="header__nav-link">
                         Home
                      </NavLink>
-                     <NavLink
-                        to="/about-us"
-                        className="header__nav-link"
-                        onClick={() => onClick("white")}
-                     >
+                     <NavLink to="/about-us" className="header__nav-link">
                         About us
                      </NavLink>
-                     <NavLink
-                        to="/sermon"
-                        className="header__nav-link"
-                        onClick={() => onClick("white")}
-                     >
+                     <NavLink to="/sermon" className="header__nav-link">
                         Sermon
                      </NavLink>
-                     <NavLink
-                        to="/blog"
-                        className="header__nav-link"
-                        onClick={() => onClick("#F5F2F0")}
-                     >
+                     <NavLink to="/blog" className="header__nav-link">
                         Blog
                      </NavLink>
                   </nav>
