@@ -6,11 +6,9 @@ import Button from "./components/Button/Button.tsx";
 import { events } from "./BD/events.js";
 import "./Sermon.scss";
 
-const Sermon = function (props) {
-   props.setBGColor("white");
-
+const Sermon = function ({ setBGColor }) {
    return (
-      <main className="main">
+      <main className="main" onLoad={() => setBGColor("white")}>
          <section className="seremon-hero">
             <Hero
                background="url(./images/sermons-hero.jpg) center 25% / cover no-repeat"

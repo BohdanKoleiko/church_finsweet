@@ -26,3 +26,15 @@
       }
    }
 }
+
+.home {
+   &__img-cards {
+      > div:nth-child(2) {
+         margin-top: 64px;
+      }
+
+      &:not(:last-child) {
+         margin-bottom: 64px;
+      }
+   }
+}

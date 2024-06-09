@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer.tsx";
 import Header from "./components/Header/Header.tsx";
@@ -10,18 +10,18 @@ import NotFound from "./NotFound.tsx";
 import "./App.scss";
 
 function App() {
-   const [pageBackgroundColor, setPageBackgroundColor] = useState({ backgroundColor: "" });
+   const [backgroundColor, setBackgroundColor] = useState("");
 
    const handleBgColor = function (color: string) {
-      if (pageBackgroundColor.backgroundColor !== color) {
-         setPageBackgroundColor({ ...pageBackgroundColor, backgroundColor: color });
+      if (backgroundColor !== color) {
+         setBackgroundColor(color);
       }
    };
 
    return (
       <BrowserRouter>
-         <div className="app" style={pageBackgroundColor}>
-            <Header onClick={handleBgColor} />
+         <div className="app" style={{ backgroundColor }}>
+            <Header />
             <Routes>
                <Route path="/" element={<Home setBGColor={handleBgColor} />} />
                <Route path="/about-us" element={<AboutUs setBGColor={handleBgColor} />} />
