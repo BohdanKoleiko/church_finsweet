@@ -7,6 +7,7 @@ interface CardWithTextAndImageProps {
    description: string;
    imgSrc: string;
    imgAlt: string;
+   imgObjectPosition?: "top" | "center" | string;
    flexDirection?: "row-reverse" | "column";
    justifyContent?: "center" | string;
    classNames: string;
@@ -17,6 +18,7 @@ const CardWithTextAndImage = function ({
    description,
    imgSrc,
    imgAlt,
+   imgObjectPosition,
    flexDirection,
    justifyContent,
    classNames,
@@ -44,7 +46,12 @@ const CardWithTextAndImage = function ({
          </div>
 
          <figure className="joining-advantages__picture-wrapper">
-            <img className="joining-advantages__picture" src={imgSrc} alt={imgAlt} />
+            <img
+               className="joining-advantages__picture"
+               src={imgSrc}
+               alt={imgAlt}
+               style={imgObjectPosition ? { objectPosition: imgObjectPosition } : {}}
+            />
          </figure>
       </div>
    );
