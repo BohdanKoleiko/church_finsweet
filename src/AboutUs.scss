@@ -1,13 +1,7 @@
 @import "./scss/variables";
 
-.about-us-main {
-   flex-grow: 1;
-}
-
 .about-us {
-   &__intro {
-      height: 419px;
-   }
+   height: 419px;
 }
 
 .welcome,
@@ -27,8 +21,10 @@
    }
 
    &__btn {
+      display: block;
       position: relative;
       z-index: 1;
+      width: 100%;
       max-width: 205px;
       margin: 0 auto -16px;
    }
