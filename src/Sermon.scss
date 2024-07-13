@@ -18,11 +18,13 @@
    &__event {
       display: flex;
       max-height: 512px;
+      margin-bottom: 48px;
    }
 
    &__event-button {
-      margin-top: 32px;
+      width: 100%;
       max-width: 191px;
+      margin-top: 32px;
    }
 }
 
