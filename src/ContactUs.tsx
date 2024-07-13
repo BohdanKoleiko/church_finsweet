@@ -4,7 +4,7 @@ import "./ContactUs.scss";
 
 export default function ContactUs() {
    return (
-      <main>
+      <main className="main">
          <section className="contact-us__intro">
             <Hero
                headingType="h2"
