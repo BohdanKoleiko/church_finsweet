@@ -23,7 +23,7 @@ const CardOfChurchMember = function ({
    linkedinLink,
    classNames,
 }: CardOfChurchMemberProps) {
-   const titleClasses = "church-member" + `${classNames ? ` ${classNames}` : ""}`;
+   const titleClasses = `church-member ${classNames ? ` ${classNames}` : ""}`;
 
    return (
       <div className={titleClasses}>
