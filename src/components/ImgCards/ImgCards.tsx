@@ -11,17 +11,17 @@ const ImgCards = function ({ aligningItems = "center", classNames }: ImgCardsPro
    return (
       <div className={`img-cards img-cards_${aligningItems} ${classNames ? classNames : ""}`}>
          <ImgCard
-            src="./images/about-us/bearded-man-praying.png"
+            src="./images/about-us/bearded-man-praying.jpg"
             alt="charity events"
             imgSize="middle-size"
          />
          <ImgCard
-            src="./images/about-us/man-and-woman-reading-book.png"
+            src="./images/about-us/man-and-woman-reading-book.jpg"
             alt="charity events"
             imgSize="big-size"
          />
          <ImgCard
-            src="./images/about-us/people-sitting.png"
+            src="./images/about-us/people-sitting.jpg"
             alt="charity events"
             imgSize="middle-size"
          />
