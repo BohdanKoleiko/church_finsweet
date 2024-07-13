@@ -1,21 +1,31 @@
 @import "../../scss/variables";
 
 .button {
-   display: block;
-   width: 100%;
    font-weight: 400;
    font-size: 16px;
    line-height: 100%;
-   text-transform: uppercase;
    text-align: center;
    outline: none;
    border: 0;
    border-radius: 12px;
    cursor: pointer;
-
    transition: all 0.2s ease-in-out;
 
-   &__primary {
+   &__logo {
+      display: flex;
+      align-items: center;
+
+      > .button__text {
+         margin-right: 11px;
+      }
+   }
+
+   &_primary,
+   &_secondary {
+      text-transform: uppercase;
+   }
+
+   &_primary {
       background-color: $primary-btn_bg-color;
       color: $primary-btn_txt-color;
 
@@ -24,13 +34,17 @@
       }
    }
 
-   &__secondary {
+   &_secondary {
       background-color: $secondary-btn_bg-color;
       color: $secondary-btn_txt-color;
 
       &:hover {
          color: $secondary-btn_txt-color_hover;
       }
+   }
+
+   &_text {
+      background-color: unset;
    }
 
    &_p20 {
