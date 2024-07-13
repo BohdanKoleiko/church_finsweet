@@ -6,10 +6,6 @@ import "../Hero/Hero.scss";
 
 interface HeroProps {
    background?: string;
-   backgroundImg?: string;
-   backgroundPosition?: string;
-   backgroundSize?: string;
-   backgroundRepeat?: string;
    textColor?: string;
    headingColor?: "white" | "black";
    buttonTxt?: string;
@@ -17,47 +13,54 @@ interface HeroProps {
    headingType: "h1" | "h2";
    headingText: string;
    supHeadingText?: string;
+   classNames?: string;
    children?: any;
 }
 
 const Hero: FC<HeroProps> = function (props) {
    const {
       background,
-      backgroundImg,
-      backgroundPosition,
-      backgroundSize,
-      backgroundRepeat,
       textColor,
       headingColor = "white",
       buttonTxt,
-      button = false,
+      button,
       headingType,
       headingText,
       supHeadingText,
+      classNames,
    } = props;
 
    const heroStyles = {
-      background: background
-         ? background
-         : `url(${backgroundImg}) ${backgroundPosition} / ${backgroundSize} ${backgroundRepeat}`,
-      color: textColor ? textColor : "",
+      background: background,
+      color: textColor,
    };
 
    return (
-      <div className="hero" style={heroStyles}>
+      <div
+         className="hero"
+         style={{ background: `${heroStyles?.background}`, color: `${heroStyles?.color}` }}
+      >
          <div className="container">
-            <div className="hero__inner">
+            <div className="hero__wrapper">
                <Heading
                   HeadingType={headingType}
                   headingTxt={headingText}
-                  classNames="hero__heading"
+                  classNames={`hero__heading ${classNames ? classNames : ""}`}
                   headingColor={headingColor}
                >
                   {supHeadingText && (
                      <div className="hero__sup-heading sup-heading">{supHeadingText}</div>
                   )}
                </Heading>
-               {button && <Button text={buttonTxt} classNames="hero__learn-more-btn" />}
+               {button && (
+                  <Button
+                     btn="primary"
+                     btnPadding="p24"
+                     link=""
+                     text={buttonTxt}
+                     classNames="hero__learn-more-btn"
+                  />
+               )}
                {props.children || ""}
             </div>
          </div>

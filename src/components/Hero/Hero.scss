@@ -4,19 +4,15 @@
    height: 100%;
    color: $white;
 
-   &__inner {
+   &__wrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: 100%;
    }
 
-   &__heading {
-      max-width: 592px;
-
-      &:not(:last-child) {
-         margin-bottom: 32px;
-      }
+   &__heading:not(:last-child) {
+      margin-bottom: $m32;
    }
 
    &__sup-heading {
@@ -26,6 +22,8 @@
    }
 
    &__learn-more-btn {
+      width: 100%;
       max-width: 214px;
+      margin-bottom: $m64;
    }
 }
