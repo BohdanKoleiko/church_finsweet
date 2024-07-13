@@ -11,21 +11,23 @@ interface HeadingProps {
 }
 
 const Heading = function (props: HeadingProps) {
-   const { headingTxt, headingColor, HeadingType, textPosition, classNames } = props;
+   const { headingTxt, headingColor, HeadingType, textPosition, classNames, children } = props;
+   const titleClasses =
+      "heading" +
+      `${headingColor ? ` heading_${headingColor}` : ""}` +
+      `${textPosition ? ` heading_${textPosition}` : ""}` +
+      `${classNames ? " " + classNames : ""}`;
 
-   return (
-      <div
-         className={
-            "heading" +
-            `${headingColor ? ` heading_${headingColor}` : ""}` +
-            `${textPosition ? ` heading_${textPosition}` : ""}` +
-            `${classNames ? " " + classNames : ""}`
-         }
-      >
-         {props.children || ""}
-         <HeadingType>{headingTxt}</HeadingType>
-      </div>
-   );
+   if (!children) {
+      return <HeadingType className={titleClasses}>{headingTxt}</HeadingType>;
+   } else {
+      return (
+         <div className={titleClasses}>
+            {props.children || ""}
+            <HeadingType>{headingTxt}</HeadingType>
+         </div>
+      );
+   }
 };
 
 export default Heading;
