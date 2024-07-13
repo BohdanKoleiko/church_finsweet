@@ -8,8 +8,8 @@ import "./AboutUs.scss";
 
 const AboutUs = function ({ setBGColor }) {
    return (
-      <main className="about-us-main" onLoad={() => setBGColor("white")}>
-         <section className="about-us__intro">
+      <main className="main" onLoad={() => setBGColor("white")}>
+         <section className="about-us">
             <Hero
                background="url(./images/about-us.jpg) center 14% / cover no-repeat"
                headingType="h2"
