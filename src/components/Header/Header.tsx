@@ -43,7 +43,13 @@ function Header() {
                      </NavLink>
                   </nav>
 
-                  <Button btnPadding="p20" text="Contact us" classNames="header__contact-btn" />
+                  <Button
+                     btn="primary"
+                     btnPadding="p20"
+                     text="Contact us"
+                     classNames="header__contact-btn"
+                     link="/contact"
+                  />
                </div>
             </div>
          </div>
