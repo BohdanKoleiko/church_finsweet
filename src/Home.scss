@@ -1,16 +1,11 @@
 @import "./scss/variables";
 
-.home-main {
-   flex-grow: 1;
-}
-
 .home-hero {
    height: 663px;
 
    &__text {
       position: relative;
       padding-left: 30px;
-      margin-top: 64px;
       max-width: 338px;
       font-weight: 400;
       font-size: 16px;
@@ -25,6 +20,26 @@
          width: 18px;
       }
    }
+
+   &__heading {
+      @media screen and (max-width: 480px) {
+         max-width: 335px;
+      }
+
+      @media screen and (min-width: 481px) {
+         max-width: 441px;
+      }
+
+      @media screen and (min-width: 769px) {
+         max-width: 592px;
+      }
+   }
+
+   &__all-sermons-button {
+      font-size: 24px;
+      line-height: 133%;
+      margin-left: auto;
+   }
 }
 
 .home {
@@ -36,5 +51,125 @@
       &:not(:last-child) {
          margin-bottom: 64px;
       }
+   }
+}
+
+.benefits-of-joining {
+   background-color: $grey;
+   &__wrapper {
+      padding: $p128 0;
+      margin-top: $m128;
+   }
+
+   &__title {
+      max-width: 432px;
+      margin: 0 auto $m64;
+   }
+}
+
+.cards-wrapper {
+   display: flex;
+   gap: 24px;
+}
+
+.card {
+   display: flex;
+   align-items: flex-end;
+   position: relative;
+   width: 302px;
+   height: 384px;
+   padding: $p32;
+   color: white;
+   overflow: hidden;
+
+   &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(6, 6, 6, 0.76));
+   }
+
+   &:not(:hover) {
+      .card__title {
+         transition-delay: 0.1s;
+         margin-bottom: 0;
+      }
+   }
+
+   &:hover {
+      .card__wysiwyg {
+         height: 80px;
+      }
+   }
+
+   &__content-wrapper {
+      position: relative;
+      z-index: 1;
+   }
+
+   &__title,
+   &__wysiwyg {
+      transition: $transition-all;
+      transition-duration: 0.2s;
+   }
+
+   &__title {
+      margin-bottom: $m16;
+   }
+
+   &__wysiwyg {
+      height: 0px;
+      overflow: hidden;
+   }
+}
+
+.serve-the-world {
+   background: url(../public/images//home/serve-the-word-bg.jpg) center center/cover no-repeat;
+   margin-top: $m128;
+   padding: $p128 0;
+
+   &__card {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 90%;
+      max-width: 768px;
+      margin: 0 auto;
+      padding: $p72 $p48;
+      background-color: $white;
+
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 16px;
+         background-color: $orange-50;
+      }
+
+      &-content,
+      &-background {
+         flex-shrink: 1;
+      }
+
+      &-content {
+         flex-basis: 100%;
+         max-width: 368px;
+      }
+
+      &-background {
+         flex-basis: 30%;
+         max-width: 187px;
+         background: url(../public/images/home/Quote-icon.png) center center/contain no-repeat;
+      }
+   }
+
+   &__button {
+      width: 100%;
+      max-width: 162px;
    }
 }
