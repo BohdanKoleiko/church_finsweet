@@ -24,9 +24,12 @@ $p8: 0.5rem;
 $p12: 0.75rem;
 $p16: 1rem;
 $p20: 1.25rem;
+$p24: 1.5rem;
+$p32: 2rem;
 $p40: 2.5rem;
 $p48: 3rem;
 $p64: 4rem;
+$p72: 4.5rem;
 $p128: 8rem;
 
 // MARGINS
@@ -38,9 +41,10 @@ $m48: 3rem;
 $m56: 3.5rem;
 $m64: 4rem;
 $m96: 6rem;
+$m128: 8rem;
 
 // TRANSITIONS
-$transition-all: all 0.3 linear;
+$transition-all: all 0.3s linear;
 
 // BORDER RADIUS
 $radius-12: 12px;
