@@ -6,6 +6,7 @@ import Home from "./Home.tsx";
 import AboutUs from "./AboutUs.tsx";
 import Sermon from "./Sermon.tsx";
 import Blog from "./Blog.tsx";
+import ContactUs from "./ContactUs.tsx";
 import NotFound from "./NotFound.tsx";
 import "./App.scss";
 
@@ -23,10 +24,13 @@ function App() {
          <div className="app" style={{ backgroundColor }}>
             <Header />
             <Routes>
-               <Route path="/" element={<Home setBGColor={handleBgColor} />} />
-               <Route path="/about-us" element={<AboutUs setBGColor={handleBgColor} />} />
-               <Route path="/sermon" element={<Sermon setBGColor={handleBgColor} />} />
-               <Route path="/blog" element={<Blog setBGColor={handleBgColor} />} />
+               <Route path="/">
+                  <Route index element={<Home setBGColor={handleBgColor} />} />
+                  <Route path="about-us" element={<AboutUs setBGColor={handleBgColor} />} />
+                  <Route path="sermon" element={<Sermon setBGColor={handleBgColor} />} />
+                  <Route path="blog" element={<Blog setBGColor={handleBgColor} />} />
+                  <Route path="contact" element={<ContactUs setBGColor={handleBgColor} />} />
+               </Route>
                <Route path="*" element={<NotFound setBGColor={handleBgColor} />} />
             </Routes>
             <Footer />
