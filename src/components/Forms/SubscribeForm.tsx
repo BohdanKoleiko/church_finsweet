@@ -31,7 +31,13 @@ const SubscribeForm: FC<SubscribeFormProps> = function ({ classNames }) {
                }}
                className="form__subscr-email-input"
             />
-            <Button btnType="submit" text="Subscribe" classNames="form__button" />
+            <Button
+               btn="primary"
+               btnPadding="p24"
+               btnType="submit"
+               text="Subscribe"
+               classNames="form__button"
+            />
          </div>
       </form>
    );
