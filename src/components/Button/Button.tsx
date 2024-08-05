@@ -25,7 +25,6 @@ const Button = function ({
 
    const handleRouteRedirection = function (path) {
       navigate(path);
-      window.scrollTo(0, 0);
    };
 
    const buttonNoImageClasses = {
@@ -47,7 +46,7 @@ const Button = function ({
          className={`button ${Object.values(buttonNoImageClasses)
             .filter((value) => value)
             .join(" ")}`}
-         onClick={() => handleRouteRedirection(link)}
+         onClick={link ? () => handleRouteRedirection(link) : undefined}
       >
          {text}
       </button>
@@ -57,7 +56,7 @@ const Button = function ({
          className={`button ${Object.values(buttonClasses)
             .filter((value) => value)
             .join(" ")}`}
-         onClick={() => handleRouteRedirection(link)}
+         onClick={link ? () => handleRouteRedirection(link) : undefined}
       >
          <span className="button__text">{text}</span>
          {logo && <img src={logo} alt="just icon" />}
