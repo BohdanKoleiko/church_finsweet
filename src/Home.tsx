@@ -57,7 +57,7 @@ const Home = function ({ setBGColor }) {
                   btnType="button"
                   text="Read more"
                   classNames="welcome__btn"
-                  link="about-us"
+                  link="about"
                />
 
                <ImgCards aligningItems="top" classNames="home__img-cards" />
@@ -69,7 +69,7 @@ const Home = function ({ setBGColor }) {
                <div className="benefits-of-joining__wrapper">
                   <Heading
                      HeadingType="h2"
-                     headingTxt="THE benefits of joining our church"
+                     headingTxt="THE benefits of joining our church"
                      textPosition="center"
                      classNames="benefits-of-joining__title"
                   >
@@ -189,7 +189,7 @@ const Home = function ({ setBGColor }) {
                         btnPadding="p24"
                         text="Register"
                         classNames="seremon-preview__event-button"
-                        link={`"sermon/register?id=${events[events.length - 1].id}`}
+                        link={`"sermons?id=${events[events.length - 1].id}`}
                      />
                   </Event>
                </div>
@@ -197,7 +197,7 @@ const Home = function ({ setBGColor }) {
                <Button
                   btn="text"
                   text="View all Sermons"
-                  link="/sermon"
+                  link="sermons"
                   logo={arrow}
                   classNames="home-hero__all-sermons-button"
                />
@@ -218,7 +218,7 @@ const Home = function ({ setBGColor }) {
                         btnPadding="p24"
                         text="Visit"
                         classNames="serve-the-world__button"
-                        link="/about-us"
+                        link="about"
                      />
                   </div>
                   <div className="serve-the-world__card-background"></div>

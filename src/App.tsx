@@ -8,6 +8,7 @@ import Sermon from "./Sermon.tsx";
 import Blog from "./Blog.tsx";
 import ContactUs from "./ContactUs.tsx";
 import NotFound from "./NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop.js";
 import "./App.scss";
 
 function App() {
@@ -21,14 +22,21 @@ function App() {
 
    return (
       <BrowserRouter>
+         <ScrollToTop />
          <div className="app" style={{ backgroundColor }}>
             <Header />
             <Routes>
                <Route path="/">
                   <Route index element={<Home setBGColor={handleBgColor} />} />
-                  <Route path="about-us" element={<AboutUs setBGColor={handleBgColor} />} />
-                  <Route path="sermon" element={<Sermon setBGColor={handleBgColor} />} />
-                  <Route path="blog" element={<Blog setBGColor={handleBgColor} />} />
+                  <Route path="about" element={<AboutUs setBGColor={handleBgColor} />} />
+                  <Route path="sermons">
+                     <Route index element={<Sermon setBGColor={handleBgColor} />} />
+                     <Route path=":sermonID" element="" />
+                  </Route>
+                  <Route path="blog">
+                     <Route index element={<Blog setBGColor={handleBgColor} />} />
+                     <Route path=":blogPostID" element="" />
+                  </Route>
                   <Route path="contact" element={<ContactUs setBGColor={handleBgColor} />} />
                </Route>
                <Route path="*" element={<NotFound setBGColor={handleBgColor} />} />

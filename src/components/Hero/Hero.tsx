@@ -56,7 +56,7 @@ const Hero: FC<HeroProps> = function (props) {
                   <Button
                      btn="primary"
                      btnPadding="p24"
-                     link=""
+                     link="about"
                      text={buttonTxt}
                      classNames="hero__learn-more-btn"
                   />

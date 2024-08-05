@@ -32,10 +32,10 @@ function Header() {
                      <NavLink to="/" className="header__nav-link">
                         Home
                      </NavLink>
-                     <NavLink to="/about-us" className="header__nav-link">
+                     <NavLink to="/about" className="header__nav-link">
                         About us
                      </NavLink>
-                     <NavLink to="/sermon" className="header__nav-link">
+                     <NavLink to="/sermons" className="header__nav-link">
                         Sermon
                      </NavLink>
                      <NavLink to="/blog" className="header__nav-link">
