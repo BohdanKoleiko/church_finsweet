@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
-import Event from "./components/Event/Event.tsx";
+//import Event from "./components/Event/Event.tsx";
 import Button from "./components/Button/Button.tsx";
 import BlogCard from "./components/BlogCard/BlogCard.tsx";
 import ImgCards from "./components/ImgCards/ImgCards.tsx";
 import "./Home.scss";
+import { BlogPostProps } from "./components/SingleBlog/SingleBlog.tsx";
 
-import { events } from "./BD/events.js";
-import { blogs } from "./BD/blogs.js";
+//import { events } from "./BD/events.js";
 import arrow from "./images/icons/Arrow.svg";
 import bg1 from "./images/fashion-man-love-people.jpg";
 import bg2 from "./images/a-statue-holding-a-holy-book.jpg";
@@ -16,6 +17,25 @@ import bg3 from "./images/man-people-woman-connection.jpg";
 import bg4 from "./images/woman-in-blue-tank-top-and-man-in-red-shirt-painting.jpg";
 
 const Home = function ({ setBGColor }) {
+   const url = "/datas/blogs.json";
+   const [blogPosts, setBlogPosts] = useState<BlogPostProps[] | null>(null);
+
+   useEffect(() => {
+      (async () => {
+         try {
+            const response = await fetch(url);
+            if (!response.ok) {
+               throw new Error(`Response status: ${response.status}`);
+            }
+
+            const json = await response.json();
+            setBlogPosts(json);
+         } catch (error) {
+            throw new Error(`Error in: ${error.message}`);
+         }
+      })();
+   }, []);
+
    return (
       <main className="main" onLoad={() => setBGColor("white")}>
          <section className="home-hero">
@@ -173,7 +193,7 @@ const Home = function ({ setBGColor }) {
                </Heading>
 
                <div className="seremon-preview__event">
-                  <Event
+                  {/*<Event
                      startEventDate={events[events.length - 1].startEventDate}
                      endEventDate={events[events.length - 1].endEventDate}
                      eventName={events[events.length - 1].eventName}
@@ -191,7 +211,7 @@ const Home = function ({ setBGColor }) {
                         classNames="seremon-preview__event-button"
                         link={`"sermons?id=${events[events.length - 1].id}`}
                      />
-                  </Event>
+                  </Event>*/}
                </div>
 
                <Button
@@ -210,7 +230,8 @@ const Home = function ({ setBGColor }) {
                   <div className="serve-the-world__card-content">
                      <Heading HeadingType="h2" headingTxt="We want to serve the world around us" />
                      <p className="wysiwyg wysiwyg_margin-16">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
+                        Our goal is to create meaningful change, fostering community and inspiring
+                        progress.
                      </p>
                      <Button
                         btn="primary"
@@ -239,20 +260,21 @@ const Home = function ({ setBGColor }) {
                   </Heading>
 
                   <div className="blog-posts__blog-cards">
-                     {blogs.map((blog, i) =>
-                        i < 4 ? (
-                           ""
+                     {blogPosts?.map((blogItem: BlogPostProps, index: number) =>
+                        index < 4 ? (
+                           <Link to={"blog/" + blogItem.id} key={index}>
+                              <BlogCard
+                                 blogCardSupTitle={blogItem.blogTheme}
+                                 blogCardTitle={blogItem.blogTitle!}
+                                 blogDescription={blogItem.blogDescription}
+                                 backgroundColor="light-orange"
+                                 blogTypeHeading="h4"
+                                 writer={`by ${blogItem.author}`}
+                                 releaseDate={blogItem.publishDate}
+                              />
+                           </Link>
                         ) : (
-                           <BlogCard
-                              blogCardSupTitle={blog.blogSupTitle}
-                              blogCardTitle={blog.blogTitle}
-                              blogDescription={blog.blogDescr}
-                              backgroundColor="light-orange"
-                              blogTypeHeading="h4"
-                              writer={blog.blogAuthor}
-                              releaseDate={blog.releaseDate}
-                              key={i}
-                           />
+                           ""
                         ),
                      )}
                   </div>
