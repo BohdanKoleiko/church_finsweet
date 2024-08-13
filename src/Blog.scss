@@ -13,6 +13,7 @@
    }
 
    &__btn {
+      width: 100%;
       max-width: 205px;
    }
 }
@@ -25,8 +26,10 @@
    }
 
    &__blog-cards {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 302px));
+      justify-items: center;
+      justify-content: center;
       gap: 24px;
    }
 }

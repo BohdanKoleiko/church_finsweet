@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogCard from "./components/BlogCard/BlogCard.tsx";
 import Button from "./components/Button/Button.tsx";
 import Heading from "./components/Heading/Heading.tsx";
-import { blogs } from "./BD/blogs.js";
+import { BlogPost } from "./components/SingleBlog/SingleBlog.tsx";
 import "./Blog.scss";
+import { Link } from "react-router-dom";
 
 const Blog = function ({ setBGColor }) {
+   const url = "/datas/blogs.json";
+   const [blogPosts, setBlogPosts] = useState<BlogPost[] | null>(null);
+
+   useEffect(() => {
+      (async () => {
+         try {
+            const response = await fetch(url);
+            if (!response.ok) {
+               throw new Error(`Response status: ${response.status}`);
+            }
+
+            const json = await response.json();
+            setBlogPosts(json);
+         } catch (error) {
+            throw new Error(`Error in: ${error.message}`);
+         }
+      })();
+   }, []);
+
    return (
       <main className="main" onLoad={() => setBGColor("#F5F2F0")}>
          <section className="blog">
@@ -20,19 +40,28 @@ const Blog = function ({ setBGColor }) {
                      <div className="blog__sup-title">OUR BLOG</div>
                   </Heading>
 
-                  <BlogCard
-                     blogCardTitle="Church was doing what he often did when dropped An oracle"
-                     blogDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor."
-                     blogCardAltImg="test image"
-                     blogCardImage="./images/blogs/2.jpg"
-                     backgroundColor="white"
-                     blogTypeHeading="h4"
-                     preview
-                     writer="By John Hunau Deo"
-                     releaseDate="Tuesday 13 May, 2018"
-                  >
-                     <Button text="Reed More" classNames="blog__btn" />
-                  </BlogCard>
+                  {blogPosts && (
+                     <BlogCard
+                        blogCardTitle={blogPosts[0].blogTitle!}
+                        blogDescription={blogPosts[0].blogDescription}
+                        blogCardAltImg={blogPosts[0].imgAlt}
+                        blogCardImage={blogPosts[0].img}
+                        backgroundColor="white"
+                        blogTypeHeading="h4"
+                        preview
+                        writer={`by ${blogPosts[0].author}`}
+                        releaseDate={blogPosts[0].publishDate}
+                        key={crypto.randomUUID()}
+                     >
+                        <Button
+                           btn="primary"
+                           btnPadding="p24"
+                           text="Reed More"
+                           classNames="blog__btn"
+                           link={`./${blogPosts[0].id}`}
+                        />
+                     </BlogCard>
+                  )}
                </div>
             </div>
          </section>
@@ -48,20 +77,21 @@ const Blog = function ({ setBGColor }) {
                   ></Heading>
 
                   <div className="blog-posts__blog-cards">
-                     {blogs.map((blog, i) =>
-                        i === blogs.length - 1 ? (
-                           ""
+                     {blogPosts?.map((blogItem: BlogPost, index: number) =>
+                        index > 0 ? (
+                           <Link to={"./" + blogItem.id} key={index}>
+                              <BlogCard
+                                 blogCardSupTitle={blogItem.blogTheme}
+                                 blogCardTitle={blogItem.blogTitle!}
+                                 blogDescription={blogItem.blogDescription}
+                                 backgroundColor="white"
+                                 blogTypeHeading="h4"
+                                 writer={`by ${blogItem.author}`}
+                                 releaseDate={blogItem.publishDate}
+                              />
+                           </Link>
                         ) : (
-                           <BlogCard
-                              blogCardSupTitle={blog.blogSupTitle}
-                              blogCardTitle={blog.blogTitle}
-                              blogDescription={blog.blogDescr}
-                              backgroundColor="white"
-                              blogTypeHeading="h4"
-                              writer={blog.blogAuthor}
-                              releaseDate={blog.releaseDate}
-                              key={i}
-                           />
+                           ""
                         ),
                      )}
                   </div>
