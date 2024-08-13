@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer.tsx";
 import Header from "./components/Header/Header.tsx";
+import ScrollToTop from "./components/ScrollToTop.js";
+import SingleBlog from "./components/SingleBlog/SingleBlog.tsx";
 import Home from "./Home.tsx";
 import AboutUs from "./AboutUs.tsx";
 import Sermon from "./Sermon.tsx";
 import Blog from "./Blog.tsx";
 import ContactUs from "./ContactUs.tsx";
 import NotFound from "./NotFound.tsx";
-import ScrollToTop from "./components/ScrollToTop.js";
 import "./App.scss";
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
                   </Route>
                   <Route path="blog">
                      <Route index element={<Blog setBGColor={handleBgColor} />} />
-                     <Route path=":blogPostID" element="" />
+                     <Route path=":blogPostID" element={<SingleBlog />} />
                   </Route>
                   <Route path="contact" element={<ContactUs setBGColor={handleBgColor} />} />
                </Route>
