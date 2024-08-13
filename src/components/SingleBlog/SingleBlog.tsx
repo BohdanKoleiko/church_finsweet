@@ -3,19 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import Heading from "../Heading/Heading.tsx";
 import "./SingleBlog.scss";
 
-interface ParagraphBlock {
+interface ParagraphBlockProps {
    text?: string | string[];
    textType?: string;
 }
 
-interface BodyBlock {
+interface BodyBlockProps {
    title?: string;
    titleType: string;
-   paragraphBlock?: ParagraphBlock[];
+   paragraphBlock?: ParagraphBlockProps[];
    images?: string[];
 }
 
-export interface BlogPost {
+export interface BlogPostProps {
    id: number;
    author?: string;
    publishDate?: string;
@@ -24,14 +24,14 @@ export interface BlogPost {
    blogDescription?: string;
    img?: string;
    imgAlt?: string;
-   body?: BodyBlock[];
+   body?: BodyBlockProps[];
 }
 
 const SingleBlog = function () {
    const url = "/datas/blogs.json";
    const { blogPostID } = useParams();
    const navigate = useNavigate();
-   const [certainCourse, setCertainCourse] = useState<BlogPost | null>(null);
+   const [certainCourse, setCertainCourse] = useState<BlogPostProps | null>(null);
 
    const postID = blogPostID ? +blogPostID : 0;
 
@@ -43,7 +43,7 @@ const SingleBlog = function () {
          }
 
          const data = await response.json();
-         const course = data.find((item: BlogPost) => item.id === postID);
+         const course = data.find((item: BlogPostProps) => item.id === postID);
 
          if (!course) {
             navigate("..", { relative: "path" });

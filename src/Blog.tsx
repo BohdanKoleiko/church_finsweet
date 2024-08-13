@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "./components/BlogCard/BlogCard.tsx";
 import Button from "./components/Button/Button.tsx";
 import Heading from "./components/Heading/Heading.tsx";
-import { BlogPost } from "./components/SingleBlog/SingleBlog.tsx";
+import { BlogPostProps } from "./components/SingleBlog/SingleBlog.tsx";
 import "./Blog.scss";
 import { Link } from "react-router-dom";
 
 const Blog = function ({ setBGColor }) {
    const url = "/datas/blogs.json";
-   const [blogPosts, setBlogPosts] = useState<BlogPost[] | null>(null);
+   const [blogPosts, setBlogPosts] = useState<BlogPostProps[] | null>(null);
 
    useEffect(() => {
       (async () => {
@@ -77,7 +77,7 @@ const Blog = function ({ setBGColor }) {
                   ></Heading>
 
                   <div className="blog-posts__blog-cards">
-                     {blogPosts?.map((blogItem: BlogPost, index: number) =>
+                     {blogPosts?.map((blogItem: BlogPostProps, index: number) =>
                         index > 0 ? (
                            <Link to={"./" + blogItem.id} key={index}>
                               <BlogCard
