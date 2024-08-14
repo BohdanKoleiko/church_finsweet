@@ -36,8 +36,8 @@ const BlogCard: FC<BlogCardProps> = function (props) {
       return (
          <div className={`blog-card blog-card_${backgroundColor} blog-card__preview`}>
             <div className="preview-descr">
-               <div className="blog-card__release-info">
-                  <span>{releaseDate}</span>
+               <div className="blog-card__release-info release-info">
+                  <span className="release-info__date">{releaseDate}</span>
                   <span>{writer}</span>
                </div>
 
@@ -68,10 +68,8 @@ const BlogCard: FC<BlogCardProps> = function (props) {
             </figure>
          </div>
       );
-   }
-
-   return (
-      <>
+   } else {
+      return (
          <div className={`blog-card blog-card_${backgroundColor}`}>
             <Heading
                headingTxt={blogCardTitle ? blogCardTitle : "Blog Card Title"}
@@ -90,14 +88,14 @@ const BlogCard: FC<BlogCardProps> = function (props) {
             </p>
 
             <div className="blog-card__release-info">
-               <span>{writer}</span>
+               <span className="blog-card__writer">{writer}</span>
                <span>{releaseDate}</span>
             </div>
 
             {children}
          </div>
-      </>
-   );
+      );
+   }
 };
 
 export default BlogCard;
