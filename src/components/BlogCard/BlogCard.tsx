@@ -36,8 +36,8 @@ const BlogCard: FC<BlogCardProps> = function (props) {
       return (
          <div className={`blog-card blog-card_${backgroundColor} blog-card__preview`}>
             <div className="preview-descr">
-               <div className="blog-card__release-info">
-                  <span>{releaseDate}</span>
+               <div className="blog-card__release-info release-info">
+                  <span className="release-info__date">{releaseDate}</span>
                   <span>{writer}</span>
                </div>
 
