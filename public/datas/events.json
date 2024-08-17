@@ -1,0 +1,110 @@
+[
+   {
+      "id": 1,
+      "eventName": "100 random acts of kindness",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "startEventDate": "07.20.2024 23:39",
+      "endEventDate": "09.24.2024 11:20",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "img": "../images/events/1.jpg",
+      "imgAlt": "There are two people in costume of angels",
+      "finished": false,
+      "body": [
+         {
+            "paragraphBlock": [
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+                  "textType": "blockquote"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "id": 2,
+      "eventName": "Faith is a process, not a destination",
+      "startEventDate": "07.20.2024 23:39",
+      "endEventDate": "07.24.2024 11:20",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/2.jpg",
+      "imgAlt": "There is the Bible book that stood on special shelf",
+      "finished": false,
+      "body": [
+         {
+            "paragraphBlock": [
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+                  "textType": "blockquote"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "id": 3,
+      "eventName": "there is nothing impossible",
+      "startEventDate": "07.20.2024 23:39",
+      "endEventDate": "07.24.2024 11:20",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/2.jpg",
+      "imgAlt": "There is the Bible book that stood on special shelf",
+      "finished": false,
+      "body": [
+         {
+            "paragraphBlock": [
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "id": 4,
+      "eventName": "WATCH AND LISTEN TO OUR SERMONS",
+      "startEventDate": "07.20.2024 23:39",
+      "endEventDate": "07.24.2024 11:20",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/1.jpg",
+      "imgAlt": "There are two people in costume of angels",
+      "finished": false,
+      "body": [
+         {
+            "paragraphBlock": [
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+                  "textType": "p"
+               },
+               {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+                  "textType": "blockquote"
+               }
+            ]
+         }
+      ]
+   }
+]
