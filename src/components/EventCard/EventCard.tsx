@@ -1,9 +1,9 @@
 import React from "react";
-import { FC, useState } from "react";
+import { FC } from "react";
 import Heading from "../Heading/Heading.tsx";
-import "./Event.scss";
+import "./EventCard.scss";
 
-interface EventProps {
+interface EventCardProps {
    backgroundColor?: "light-orange" | "white";
    startEventDate: string;
    endEventDate: string;
@@ -13,6 +13,9 @@ interface EventProps {
    preview?: boolean;
    eventImage?: string;
    eventAltImg?: string;
+   eventStatus?: boolean;
+   handleEventStatus?: Function;
+   eventID?: number;
    children?: any;
 }
 
@@ -32,7 +35,7 @@ const months = [
    "December",
 ];
 
-const Event: FC<EventProps> = function (props) {
+const EventCard: FC<EventCardProps> = function (props) {
    const {
       backgroundColor = "light-orange",
       startEventDate,
@@ -43,41 +46,45 @@ const Event: FC<EventProps> = function (props) {
       preview,
       eventImage,
       eventAltImg,
+      eventStatus,
+      handleEventStatus,
+      eventID = 0,
       children,
    } = props;
 
-   const [eventStatus, setEventStatus] = useState("Upcoming event");
+   const eventStatusText = ["Upcoming event", "Finished event"];
 
-   const startEvent: any = startEventDate ? new Date(startEventDate) : "";
-   const endEvent: any = endEventDate ? new Date(endEventDate) : "";
+   const startEvent: Date = startEventDate ? new Date(startEventDate) : new Date();
+   const endEvent: Date = endEventDate ? new Date(endEventDate) : new Date();
 
-   const handleActualTime = function (endEvent: number) {
+   const handleActualTime = function (endEvent: any) {
       if (Math.floor(endEvent - Date.now()) <= 0) {
-         setEventStatus("Finished event");
+         handleEventStatus(eventID, true);
+         clearInterval(intervalID);
+      } else {
+         handleEventStatus(eventID, false);
          clearInterval(intervalID);
       }
    };
 
-   const intervalID = setInterval(() => handleActualTime(endEvent), 3000);
+   const intervalID = setInterval(() => handleActualTime(endEvent), 0);
 
    return (
       <>
          <div className={`event event_${backgroundColor} ${preview ? "event__preview" : ""}`}>
             <Heading headingTxt={`${eventName}`} HeadingType="h5" classNames="event__heading">
-               <div className="event__sup-heading sup-heading">{eventStatus}</div>
+               <div className="event__sup-heading sup-heading">
+                  {eventStatus ? eventStatusText[1] : eventStatusText[0]}
+               </div>
             </Heading>
 
-            <p className="event__descr">
-               {eventDescription
-                  ? eventDescription
-                  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-            </p>
+            {eventDescription ? <p className="event__descr">{eventDescription}</p> : ""}
 
             <div className="schedule">
                <div className="schedule__date">
                   <figure className="schedule__image">
                      <img
-                        src="./images/icons/clock.svg"
+                        src="../images/icons/clock.svg"
                         alt="Icon illustrates clock as a symbol of upcoming event date"
                      />
                   </figure>
@@ -107,11 +114,11 @@ const Event: FC<EventProps> = function (props) {
                <div className="schedule__destination">
                   <figure className="schedule__image">
                      <img
-                        src="./images/icons/destination.svg"
+                        src="../images/icons/destination.svg"
                         alt="Icon illustrates point on the map"
                      />
                   </figure>
-                  <p>{eventVenue ? eventVenue : "No 233 Main St. New York, United States"}</p>
+                  {eventVenue ? <p>{eventVenue}</p> : ""}
                </div>
             </div>
 
@@ -135,4 +142,4 @@ const Event: FC<EventProps> = function (props) {
    );
 };
 
-export default Event;
+export default EventCard;
