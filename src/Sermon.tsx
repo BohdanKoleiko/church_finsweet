@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
-import Event from "./components/Event/Event.tsx";
+import EventCard from "./components/EventCard/EventCard.tsx";
 import Button from "./components/Button/Button.tsx";
-import { events } from "./BD/events.js";
+import { SingleEventProps } from "./components/SingleEvent/SingleEvent.tsx";
 import "./Sermon.scss";
+import { Link } from "react-router-dom";
 
 const Sermon = function ({ setBGColor }) {
+   const url = "/datas/events.json";
+   const [events, setEvents] = useState<SingleEventProps[] | null>(null);
+
+   const fetchEvents = useCallback(async () => {
+      try {
+         const response = await fetch(url);
+         if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+         }
+
+         const json = await response.json();
+         setEvents(json);
+      } catch (error) {
+         throw new Error(`Error in: ${error.message}`);
+      }
+   }, []);
+
+   useEffect(() => {
+      fetchEvents();
+   }, [fetchEvents]);
+
+   const handleEventStatus = (eventID: number, status: boolean) => {
+      setEvents((prevState) => {
+         return prevState?.map((event) =>
+            event.id === eventID ? { ...event, finished: status } : event,
+         );
+      });
+   };
+
    return (
       <main className="main" onLoad={() => setBGColor("white")}>
          <section className="seremon-hero">
@@ -31,22 +61,30 @@ const Sermon = function ({ setBGColor }) {
                </Heading>
 
                <div className="seremon-preview__event">
-                  <Event
-                     startEventDate={events[events.length - 1].startEventDate}
-                     endEventDate={events[events.length - 1].endEventDate}
-                     eventName={events[events.length - 1].eventName}
-                     eventVenue={events[events.length - 1].eventVenue}
-                     eventDescription={events[events.length - 1].eventDescr}
-                     preview
-                     eventImage={events[events.length - 1].img}
-                     eventAltImg={events[events.length - 1].imgAlt}
-                  >
-                     <Button
-                        text="Register"
-                        classNames="seremon-preview__event-button"
-                        btn="secondary"
-                     />
-                  </Event>
+                  {events && (
+                     <EventCard
+                        startEventDate={events[events.length - 1].startEventDate!}
+                        endEventDate={events[events.length - 1].endEventDate!}
+                        eventName={events[events.length - 1].eventName!}
+                        eventVenue={events[events.length - 1].eventVenue}
+                        eventDescription={events[events.length - 1].eventDescr}
+                        preview
+                        eventImage={events[events.length - 1].img}
+                        eventAltImg={events[events.length - 1].imgAlt}
+                        handleEventStatus={handleEventStatus}
+                        eventStatus={events[events.length - 1].finished}
+                        eventID={events[events.length - 1].id}
+                     >
+                        <Button
+                           btnType="button"
+                           btnPadding="p24"
+                           text="Register"
+                           classNames="seremon-preview__event-button"
+                           btn="secondary"
+                           link={`./${events[events.length - 1].id}`}
+                        />
+                     </EventCard>
+                  )}
                </div>
             </div>
          </section>
@@ -60,16 +98,21 @@ const Sermon = function ({ setBGColor }) {
                />
 
                <div className="seremon-events__wrapper">
-                  {events.map((event, index) => (
-                     <Event
-                        startEventDate={event.startEventDate}
-                        endEventDate={event.endEventDate}
-                        eventName={event.eventName}
-                        eventDescription={event.eventDescr}
-                        eventVenue={event.eventVenue}
-                        key={index}
-                     />
-                  ))}
+                  {events &&
+                     events.map((event, index) => (
+                        <Link to={"./" + event.id} key={index}>
+                           <EventCard
+                              startEventDate={event.startEventDate!}
+                              endEventDate={event.endEventDate!}
+                              eventName={event.eventName!}
+                              eventDescription={event.eventDescr}
+                              eventVenue={event.eventVenue}
+                              handleEventStatus={handleEventStatus}
+                              eventStatus={event.finished}
+                              eventID={event.id}
+                           />
+                        </Link>
+                     ))}
                </div>
             </div>
          </section>
