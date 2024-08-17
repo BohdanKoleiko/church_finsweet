@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Heading from "../Heading/Heading.tsx";
 import "./SingleBlog.scss";
 
-interface ParagraphBlockProps {
+export interface ParagraphBlockProps {
    text?: string | string[];
    textType?: string;
 }
