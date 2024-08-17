@@ -1,42 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
 import EventCard from "./components/EventCard/EventCard.tsx";
 import Button from "./components/Button/Button.tsx";
-import { SingleEventProps } from "./components/SingleEvent/SingleEvent.tsx";
 import "./Sermon.scss";
 import { Link } from "react-router-dom";
 
-const Sermon = function ({ setBGColor }) {
-   const url = "/datas/events.json";
-   const [events, setEvents] = useState<SingleEventProps[] | null>(null);
-
-   const fetchEvents = useCallback(async () => {
-      try {
-         const response = await fetch(url);
-         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-         }
-
-         const json = await response.json();
-         setEvents(json);
-      } catch (error) {
-         throw new Error(`Error in: ${error.message}`);
-      }
-   }, []);
-
-   useEffect(() => {
-      fetchEvents();
-   }, [fetchEvents]);
-
-   const handleEventStatus = (eventID: number, status: boolean) => {
-      setEvents((prevState) => {
-         return prevState?.map((event) =>
-            event.id === eventID ? { ...event, finished: status } : event,
-         );
-      });
-   };
-
+const Sermon = function ({ setBGColor, events, handleEventStatus }) {
    return (
       <main className="main" onLoad={() => setBGColor("white")}>
          <section className="seremon-hero">

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Heading from "../Heading/Heading.tsx";
 import EventCard from "../EventCard/EventCard.tsx";
 import { ParagraphBlockProps } from "../SingleBlog/SingleBlog";
@@ -18,48 +18,7 @@ export interface SingleEventProps {
    body?: ParagraphBlockProps[];
 }
 
-const SingleEvent = function ({ setBGColor }) {
-   const url = "/datas/events.json";
-   const { sermonID } = useParams();
-   const navigate = useNavigate();
-   const [certainEvent, setCertainEvent] = useState<SingleEventProps | null>(null);
-   const [events, setEvents] = useState<SingleEventProps[] | null>(null);
-
-   const postID = sermonID ? +sermonID : 0;
-
-   const fetchEvents = useCallback(async () => {
-      try {
-         const response = await fetch(url);
-         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-         }
-
-         const eventsData = await response.json();
-         //const event = data.find((item: SingleEventProps) => item.id === postID);
-
-         if (!eventsData) {
-            navigate("..", { relative: "path" });
-         } else {
-            //setCertainEvent(event);
-            setEvents(eventsData);
-         }
-      } catch (error) {
-         console.error(error);
-      }
-   }, [navigate]);
-
-   useEffect(() => {
-      fetchEvents();
-   }, [fetchEvents]);
-
-   const handleEventStatus = (eventID: number, status: boolean) => {
-      setEvents((prevState) => {
-         return prevState?.map((event) =>
-            event.id === eventID ? { ...event, finished: status } : event,
-         );
-      });
-   };
-
+const SingleEvent = function ({ setBGColor, events, handleEventStatus }) {
    return (
       events && (
          <main className="main" onLoad={() => setBGColor("#F5F2F0")}>
