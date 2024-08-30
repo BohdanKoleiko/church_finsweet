@@ -4,7 +4,7 @@
    position: relative;
    overflow: hidden;
 
-   &:not(&__preview) {
+   &:not(.event-preview) {
       max-width: 302px;
       padding: 80px 40px;
       cursor: pointer;
@@ -14,7 +14,7 @@
          right: 26px;
       }
 
-      .preview-img {
+      .event__img-wrapper {
          display: none;
       }
 
@@ -92,25 +92,23 @@
    }
 }
 
-.event.event__preview {
-   max-width: 435px;
-   padding: 61px 90px;
+.event.event-preview {
+   display: grid;
+   grid-template-columns: minmax(320px, 435px) minmax(320px, 845px);
+   grid-template-rows: minmax(auto, 512px);
 
    .event__schedule {
       top: 32px;
       right: 32px;
    }
+}
 
-   + .preview-img {
-      display: block;
-      overflow: hidden;
-
-      > img {
-         display: block;
-         height: 100%;
-         width: 100%;
-         object-fit: cover;
-      }
+.event-preview {
+   &__event-info {
+      position: relative;
+      max-width: 435px;
+      height: max-content;
+      padding: 61px 90px;
    }
 }
 
@@ -123,6 +121,7 @@
    &__destination {
       display: flex;
       align-items: flex-start;
+      line-height: 150%;
    }
 
    &__image {
@@ -145,5 +144,65 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 150%;
+   }
+}
+
+.preview-img-container {
+   &__img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .event.event-preview {
+      .event__schedule {
+         top: 16px;
+         right: 20px;
+      }
+   }
+
+   .event-preview {
+      &__event-info {
+         padding-left: calc($index * 4.911);
+         padding-right: calc($index * 4.911);
+         padding-bottom: calc($index * 3.293);
+      }
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .event {
+      &:not(.event-preview) {
+         padding-top: 60px;
+         padding-bottom: 40px;
+
+         .event__schedule {
+            top: 12px;
+            right: 16px;
+         }
+      }
+
+      &__start-day {
+         font-size: 20px;
+      }
+
+      &__start-month {
+         font-size: 14px;
+      }
+   }
+
+   .event.event-preview {
+      grid-template-columns: 1fr;
+      grid-template-rows: calc($index * 32) minmax(auto, max-content);
+   }
+
+   .event-preview {
+      &__event-info {
+         grid-row-start: 2;
+         max-width: none;
+      }
    }
 }
