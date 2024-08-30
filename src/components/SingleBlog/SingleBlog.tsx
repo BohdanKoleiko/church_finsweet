@@ -16,6 +16,12 @@ interface BodyBlockProps {
 }
 
 export interface BlogPostProps {
+   startEventDate: any;
+   startEventDate: any;
+   endEventDate: any;
+   eventName: any;
+   eventVenue: any;
+   eventDescr: any;
    id: number;
    author?: string;
    publishDate?: string;
