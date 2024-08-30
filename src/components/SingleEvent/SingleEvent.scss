@@ -1,0 +1,83 @@
+@import "../../scss/variables.scss";
+
+.single-event {
+   &__wrapper {
+      display: grid;
+      grid-template-columns: minmax(320px, 630px) minmax(320px, 522px);
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
+      justify-content: space-between;
+      gap: 32px;
+      padding-top: 128px;
+   }
+
+   &__image-container {
+      max-width: 630px;
+      max-height: 334px;
+      height: 100%;
+      margin-bottom: 32px;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__title {
+      margin-bottom: 16px;
+   }
+
+   &__event-status {
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+   }
+
+   &__text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      opacity: 0.78;
+
+      &:not(:last-child) {
+         margin-bottom: 24px;
+      }
+   }
+
+   blockquote.single-event__text {
+      font-size: 24px;
+      padding: 6px 0 6px 20px;
+      border-left: 2.5px solid $orange-50;
+   }
+}
+
+.all-events {
+   padding-top: 128px;
+
+   &__heading {
+      margin-bottom: $m64;
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .single-event {
+      &__wrapper {
+         grid-template-columns: 1fr;
+         grid-template-rows: repeat(2, auto);
+      }
+
+      &__image-container {
+         max-width: none;
+         height: calc($index * 19);
+      }
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .single-event {
+      &__form {
+         padding: $p32;
+      }
+   }
+}
