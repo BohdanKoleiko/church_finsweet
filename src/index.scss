@@ -118,6 +118,12 @@ ul > li {
 .sup-heading {
    text-transform: uppercase;
    margin-bottom: $m16;
+
+   &_gradient {
+      background: linear-gradient(163deg, #a54e2b 0%, #dc9853 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
 }
 
 .main {
