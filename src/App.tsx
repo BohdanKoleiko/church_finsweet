@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop.js";
 import SingleBlog from "./components/SingleBlog/SingleBlog.tsx";
 import SingleEvent from "./components/SingleEvent/SingleEvent.tsx";
 import { gettingData } from "./components/gettingData.ts";
+import { ParagraphBlockProps } from "./components/SingleBlog/SingleBlog.tsx";
 import Home from "./Home.tsx";
 import AboutUs from "./AboutUs.tsx";
 import Sermon from "./Sermon.tsx";
@@ -14,9 +15,22 @@ import ContactUs from "./ContactUs.tsx";
 import NotFound from "./NotFound.tsx";
 import "./App.scss";
 
+interface eventProps {
+   id: number;
+   eventName?: string;
+   startEventDate?: string;
+   endEventDate?: string;
+   eventVenue?: string;
+   eventDescr?: string;
+   img?: string;
+   imgAlt?: string;
+   finished: boolean;
+   body?: ParagraphBlockProps[];
+}
+
 function App() {
    const [backgroundColor, setBackgroundColor] = useState("");
-   const [events, setEvents] = useState(null);
+   const [events, setEvents] = useState<eventProps>();
 
    const handleBgColor = function (color: string) {
       if (backgroundColor !== color) {
@@ -26,7 +40,7 @@ function App() {
 
    const handleEventStatus = (eventID: number, status: boolean) => {
       setEvents((prevState) => {
-         return prevState?.map((event) =>
+         return prevState?.map((event: eventProps) =>
             event.id === eventID ? { ...event, finished: status } : event,
          );
       });
