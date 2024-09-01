@@ -1,5 +1,8 @@
+@import "./scss/variables.scss";
+
 .seremon-hero {
    height: 419px;
+   min-height: 235px;
 }
 
 .seremon-preview {
@@ -7,47 +10,52 @@
 
    &__title {
       max-width: 554px;
-      margin: 0 auto 64px;
+      margin: 0 auto $m64;
    }
 
    &__sup-title {
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: $m16;
    }
 
    &__event {
-      display: flex;
-      max-height: 512px;
-      margin-bottom: 48px;
+      margin-bottom: $m48;
    }
 
    &__event-button {
       width: 100%;
       max-width: 191px;
-      margin-top: 32px;
+      margin-top: $m32;
    }
 }
 
 .seremon-events {
    padding-top: 208px;
-   padding-bottom: 128px;
 
    &__title {
-      margin-bottom: 64px;
+      margin-bottom: $m64;
       text-align: center;
    }
 
-   &__wrapper {
-      display: flex;
+   &__event-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 302px));
+      justify-items: center;
+      justify-content: center;
       gap: 24px;
-      overflow-y: hidden;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
+   }
+}
 
-      > div {
-         flex: 1 0 auto;
-         scroll-snap-align: start;
-      }
+@media screen and (max-width: 1320px) {
+   .seremon-hero {
+      height: calc($index * 19.2115);
+   }
+
+   .seremon-preview {
+      padding-top: calc($index * 5.87);
+   }
+
+   .seremon-events {
+      padding-top: calc($index * 9.54);
    }
 }

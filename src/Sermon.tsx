@@ -30,32 +30,31 @@ const Sermon = function ({ setBGColor, events, handleEventStatus }) {
                   <div className="seremon-preview__sup-title">Upcoming SERMONS</div>
                </Heading>
 
-               <div className="seremon-preview__event">
-                  {events && (
-                     <EventCard
-                        startEventDate={events[events.length - 1].startEventDate!}
-                        endEventDate={events[events.length - 1].endEventDate!}
-                        eventName={events[events.length - 1].eventName!}
-                        eventVenue={events[events.length - 1].eventVenue}
-                        eventDescription={events[events.length - 1].eventDescr}
-                        preview
-                        eventImage={events[events.length - 1].img}
-                        eventAltImg={events[events.length - 1].imgAlt}
-                        handleEventStatus={handleEventStatus}
-                        eventStatus={events[events.length - 1].finished}
-                        eventID={events[events.length - 1].id}
-                     >
-                        <Button
-                           btnType="button"
-                           btnPadding="p24"
-                           text="Register"
-                           classNames="seremon-preview__event-button"
-                           btn="secondary"
-                           link={`./${events[events.length - 1].id}`}
-                        />
-                     </EventCard>
-                  )}
-               </div>
+               {events && (
+                  <EventCard
+                     classNames="seremon-preview__event"
+                     startEventDate={events[events.length - 1].startEventDate!}
+                     endEventDate={events[events.length - 1].endEventDate!}
+                     eventName={events[events.length - 1].eventName!}
+                     eventVenue={events[events.length - 1].eventVenue}
+                     eventDescription={events[events.length - 1].eventDescr}
+                     preview
+                     eventImage={events[events.length - 1].img}
+                     eventAltImg={events[events.length - 1].imgAlt}
+                     handleEventStatus={handleEventStatus}
+                     eventStatus={events[events.length - 1].finished}
+                     eventID={events[events.length - 1].id}
+                  >
+                     <Button
+                        btnType="button"
+                        btnPadding="p24"
+                        text="Register"
+                        classNames="seremon-preview__event-button"
+                        btn="secondary"
+                        link={`./${events[events.length - 1].id}`}
+                     />
+                  </EventCard>
+               )}
             </div>
          </section>
 
@@ -67,7 +66,7 @@ const Sermon = function ({ setBGColor, events, handleEventStatus }) {
                   classNames="seremon-events__title"
                />
 
-               <div className="seremon-events__wrapper">
+               <div className="seremon-events__event-cards">
                   {events &&
                      events.map((event, index) => (
                         <Link to={"./" + event.id} key={index}>
