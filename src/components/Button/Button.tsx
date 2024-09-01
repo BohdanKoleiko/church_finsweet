@@ -10,6 +10,7 @@ interface ButtonProps {
    link?: string;
    logo?: string;
    classNames?: string;
+   disabled?: boolean;
 }
 
 const Button = function ({
@@ -20,6 +21,7 @@ const Button = function ({
    link,
    logo,
    classNames,
+   disabled,
 }: ButtonProps) {
    let navigate = useNavigate();
 
@@ -47,6 +49,7 @@ const Button = function ({
             .filter((value) => value)
             .join(" ")}`}
          onClick={link ? () => handleRouteRedirection(link) : undefined}
+         disabled={disabled}
       >
          {text}
       </button>
@@ -57,6 +60,7 @@ const Button = function ({
             .filter((value) => value)
             .join(" ")}`}
          onClick={link ? () => handleRouteRedirection(link) : undefined}
+         disabled={disabled}
       >
          <span className="button__text">{text}</span>
          {logo && <img src={logo} alt="just icon" />}

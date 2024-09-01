@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Heading from "../Heading/Heading.tsx";
 import "./SingleBlog.scss";
 
-interface ParagraphBlockProps {
+export interface ParagraphBlockProps {
    text?: string | string[];
    textType?: string;
 }
@@ -16,6 +16,12 @@ interface BodyBlockProps {
 }
 
 export interface BlogPostProps {
+   startEventDate: any;
+   startEventDate: any;
+   endEventDate: any;
+   eventName: any;
+   eventVenue: any;
+   eventDescr: any;
    id: number;
    author?: string;
    publishDate?: string;

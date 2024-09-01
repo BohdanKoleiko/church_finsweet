@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "./components/Hero/Hero.tsx";
 import Heading from "./components/Heading/Heading.tsx";
-//import Event from "./components/Event/Event.tsx";
+import EventCard from "./components/EventCard/EventCard.tsx";
 import Button from "./components/Button/Button.tsx";
 import BlogCard from "./components/BlogCard/BlogCard.tsx";
 import ImgCards from "./components/ImgCards/ImgCards.tsx";
+import { gettingData } from "./components/gettingData.ts";
 import "./Home.scss";
 import { BlogPostProps } from "./components/SingleBlog/SingleBlog.tsx";
+import { EventCardProps } from "./components/EventCard/EventCard.tsx";
 
-//import { events } from "./BD/events.js";
 import arrow from "./images/icons/Arrow.svg";
 import bg1 from "./images/fashion-man-love-people.jpg";
 import bg2 from "./images/a-statue-holding-a-holy-book.jpg";
@@ -17,23 +18,14 @@ import bg3 from "./images/man-people-woman-connection.jpg";
 import bg4 from "./images/woman-in-blue-tank-top-and-man-in-red-shirt-painting.jpg";
 
 const Home = function ({ setBGColor }) {
-   const url = "/datas/blogs.json";
+   const blogURL = "/datas/blogs.json";
+   const eventURL = "./datas/events.json";
    const [blogPosts, setBlogPosts] = useState<BlogPostProps[] | null>(null);
+   const [event, setEvent] = useState<EventCardProps[] | null>(null);
 
    useEffect(() => {
-      (async () => {
-         try {
-            const response = await fetch(url);
-            if (!response.ok) {
-               throw new Error(`Response status: ${response.status}`);
-            }
-
-            const json = await response.json();
-            setBlogPosts(json);
-         } catch (error) {
-            throw new Error(`Error in: ${error.message}`);
-         }
-      })();
+      gettingData({ setter: setBlogPosts, url: blogURL });
+      gettingData({ setter: setEvent, url: eventURL });
    }, []);
 
    return (
@@ -97,85 +89,28 @@ const Home = function ({ setBGColor }) {
                   </Heading>
 
                   <div className="cards-wrapper">
-                     <div
-                        className="card"
-                        style={{
-                           background: `url(${bg1}) center center/cover no-repeat`,
-                        }}
-                     >
-                        <div className="card__content-wrapper">
-                           <Heading
-                              HeadingType="h5"
-                              headingTxt="WATCH AND LISTEN TO OUR SERMONS"
-                              headingColor="white"
-                              classNames="card__title"
-                           />
-                           <p className="wysiwyg card__wysiwyg">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                              eiusmod tempor incididunt ut.
-                           </p>
+                     {[bg1, bg2, bg3, bg4].map((bg, index) => (
+                        <div
+                           className="card"
+                           key={index}
+                           style={{
+                              background: `url(${bg}) center center/cover no-repeat`,
+                           }}
+                        >
+                           <div className="card__content-wrapper">
+                              <Heading
+                                 HeadingType="h5"
+                                 headingTxt="WATCH AND LISTEN TO OUR SERMONS"
+                                 headingColor="white"
+                                 classNames="card__title"
+                              />
+                              <p className="wysiwyg card__wysiwyg">
+                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                 eiusmod tempor incididunt ut.
+                              </p>
+                           </div>
                         </div>
-                     </div>
-
-                     <div
-                        className="card"
-                        style={{
-                           background: `url(${bg2}) center center/cover no-repeat`,
-                        }}
-                     >
-                        <div className="card__content-wrapper">
-                           <Heading
-                              HeadingType="h5"
-                              headingTxt="WATCH AND LISTEN TO OUR SERMONS"
-                              headingColor="white"
-                              classNames="card__title"
-                           />
-                           <p className="wysiwyg card__wysiwyg">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                              eiusmod tempor incididunt ut.
-                           </p>
-                        </div>
-                     </div>
-
-                     <div
-                        className="card"
-                        style={{
-                           background: `url(${bg3}) center center/cover no-repeat`,
-                        }}
-                     >
-                        <div className="card__content-wrapper">
-                           <Heading
-                              HeadingType="h5"
-                              headingTxt="WATCH AND LISTEN TO OUR SERMONS"
-                              headingColor="white"
-                              classNames="card__title"
-                           />
-                           <p className="wysiwyg card__wysiwyg">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                              eiusmod tempor incididunt ut.
-                           </p>
-                        </div>
-                     </div>
-
-                     <div
-                        className="card"
-                        style={{
-                           background: `url(${bg4}) center center/cover no-repeat`,
-                        }}
-                     >
-                        <div className="card__content-wrapper">
-                           <Heading
-                              HeadingType="h5"
-                              headingTxt="WATCH AND LISTEN TO OUR SERMONS"
-                              headingColor="white"
-                              classNames="card__title"
-                           />
-                           <p className="wysiwyg card__wysiwyg">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                              eiusmod tempor incididunt ut.
-                           </p>
-                        </div>
-                     </div>
+                     ))}
                   </div>
                </div>
             </div>
@@ -193,25 +128,27 @@ const Home = function ({ setBGColor }) {
                </Heading>
 
                <div className="seremon-preview__event">
-                  {/*<Event
-                     startEventDate={events[events.length - 1].startEventDate}
-                     endEventDate={events[events.length - 1].endEventDate}
-                     eventName={events[events.length - 1].eventName}
-                     eventVenue={events[events.length - 1].eventVenue}
-                     eventDescription={events[events.length - 1].eventDescr}
-                     preview
-                     eventImage={events[events.length - 1].img}
-                     eventAltImg={events[events.length - 1].imgAlt}
-                  >
-                     <Button
-                        btn="secondary"
-                        btnType="button"
-                        btnPadding="p24"
-                        text="Register"
-                        classNames="seremon-preview__event-button"
-                        link={`"sermons?id=${events[events.length - 1].id}`}
-                     />
-                  </Event>*/}
+                  {event && (
+                     <EventCard
+                        startEventDate={event[event.length - 1].startEventDate}
+                        endEventDate={event[event.length - 1].endEventDate}
+                        eventName={event[event.length - 1].eventName}
+                        eventVenue={event[event.length - 1].eventVenue}
+                        eventDescription={event[event.length - 1].eventDescr}
+                        preview
+                        eventImage={event[event.length - 1].img}
+                        eventAltImg={event[event.length - 1].imgAlt}
+                     >
+                        <Button
+                           btn="secondary"
+                           btnType="button"
+                           btnPadding="p24"
+                           text="Register"
+                           classNames="seremon-preview__event-button"
+                           link={`sermons/${event[event.length - 1].id}`}
+                        />
+                     </EventCard>
+                  )}
                </div>
 
                <Button
