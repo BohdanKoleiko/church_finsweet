@@ -20,12 +20,6 @@ interface CertainEventProps {
    paragraphBlock: ParagraphBlockProps[];
 }
 
-interface SingleEventProps {
-   setBGColor: (arg0: string) => {};
-   events: CertainEventProps[];
-   handleEventStatus: () => {};
-}
-
 const months: string[] = [
    "January",
    "February",
@@ -41,7 +35,7 @@ const months: string[] = [
    "December",
 ];
 
-const SingleEvent = function ({ setBGColor, events, handleEventStatus }: SingleEventProps) {
+const SingleEvent = function ({ setBGColor, events, handleEventStatus }) {
    const navigate = useNavigate();
    const { sermonID } = useParams<{ sermonID: string }>();
    const [certainEvent, setCertainEvent] = useState<CertainEventProps | null>(null);
