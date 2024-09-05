@@ -30,9 +30,10 @@ interface eventProps {
 
 function App() {
    const [backgroundColor, setBackgroundColor] = useState("");
+   const [overflow, setOverflow] = useState(false);
    const [events, setEvents] = useState<eventProps>();
 
-   const handleBgColor = function (color: string) {
+   const handleBgColor = (color: string) => {
       if (backgroundColor !== color) {
          setBackgroundColor(color);
       }
@@ -46,6 +47,10 @@ function App() {
       });
    };
 
+   const handleSetOverflow = (status: boolean) => {
+      setOverflow(status);
+   };
+
    useEffect(() => {
       gettingData({ setter: setEvents, url: "/datas/events.json" });
    }, []);
@@ -53,8 +58,8 @@ function App() {
    return (
       <BrowserRouter>
          <ScrollToTop />
-         <div className="app" style={{ backgroundColor }}>
-            <Header />
+         <div className={`app ${overflow ? "app_overflow" : ""}`} style={{ backgroundColor }}>
+            <Header setOverflowStatus={handleSetOverflow} />
             <Routes>
                <Route path="/">
                   <Route index element={<Home setBGColor={handleBgColor} />} />
