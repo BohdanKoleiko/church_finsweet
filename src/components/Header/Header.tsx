@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button.tsx";
 import "./Header.scss";
 
 function Header({ setOverflowStatus }) {
    const [btnState, setBtnState] = useState(false);
-   const handleBurgerBtnClick = function () {
-      setBtnState(!btnState);
-      setOverflowStatus(!btnState);
+   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+   const handleBurgerBtnClick = () => {
+      // to avoide false positives
+      if (windowWidth <= 768) {
+         setBtnState(!btnState);
+         setOverflowStatus(!btnState);
+      }
    };
+
+   useEffect(() => {
+      const handleWindowWidthResizing = () => {
+         setWindowWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", handleWindowWidthResizing);
+
+      return () => {
+         window.removeEventListener("resize", handleWindowWidthResizing);
+      };
+   }, []);
 
    return (
       <header className="header">
@@ -36,16 +53,28 @@ function Header({ setOverflowStatus }) {
                   className={`header__nav-wrapper ${btnState ? "header__nav-wrapper--active" : ""}`}
                >
                   <nav className="header__nav">
-                     <NavLink className="header__nav-link" to="/">
+                     <NavLink className="header__nav-link" to="/" onClick={handleBurgerBtnClick}>
                         Home
                      </NavLink>
-                     <NavLink className="header__nav-link" to="/about">
+                     <NavLink
+                        className="header__nav-link"
+                        to="/about"
+                        onClick={handleBurgerBtnClick}
+                     >
                         About us
                      </NavLink>
-                     <NavLink className="header__nav-link" to="/sermons">
+                     <NavLink
+                        className="header__nav-link"
+                        to="/sermons"
+                        onClick={handleBurgerBtnClick}
+                     >
                         Sermon
                      </NavLink>
-                     <NavLink className="header__nav-link" to="/blog">
+                     <NavLink
+                        className="header__nav-link"
+                        to="/blog"
+                        onClick={handleBurgerBtnClick}
+                     >
                         Blog
                      </NavLink>
                   </nav>
@@ -56,6 +85,7 @@ function Header({ setOverflowStatus }) {
                      btnPadding="p20"
                      text="Contact us"
                      link="/contact"
+                     onClick={handleBurgerBtnClick}
                   />
                </div>
 
