@@ -11,6 +11,7 @@ interface ButtonProps {
    logo?: string;
    classNames?: string;
    disabled?: boolean;
+   onClick?: any;
 }
 
 const Button = function ({
@@ -22,6 +23,7 @@ const Button = function ({
    logo,
    classNames,
    disabled,
+   onClick,
 }: ButtonProps) {
    let navigate = useNavigate();
 
@@ -48,7 +50,12 @@ const Button = function ({
          className={`button ${Object.values(buttonNoImageClasses)
             .filter((value) => value)
             .join(" ")}`}
-         onClick={link ? () => handleRouteRedirection(link) : undefined}
+         onClick={() => {
+            if (link) {
+               handleRouteRedirection(link);
+            }
+            onClick();
+         }}
          disabled={disabled}
       >
          {text}
@@ -59,7 +66,12 @@ const Button = function ({
          className={`button ${Object.values(buttonClasses)
             .filter((value) => value)
             .join(" ")}`}
-         onClick={link ? () => handleRouteRedirection(link) : undefined}
+         onClick={() => {
+            if (link) {
+               handleRouteRedirection(link);
+            }
+            onClick();
+         }}
          disabled={disabled}
       >
          <span className="button__text">{text}</span>
