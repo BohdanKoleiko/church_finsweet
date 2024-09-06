@@ -47,6 +47,7 @@ function App() {
       });
    };
 
+   // add overflow when menu opened
    const handleSetOverflow = (status: boolean) => {
       setOverflow(status);
    };
