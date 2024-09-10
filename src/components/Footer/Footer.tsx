@@ -34,13 +34,10 @@ function Footer() {
                   <p className="footer-nav__title">Quick links</p>
                   <ul>
                      <li className="footer-nav__links">
-                        <NavLink to="/about-us">About us</NavLink>
+                        <NavLink to="/about">About us</NavLink>
                      </li>
                      <li className="footer-nav__links">
-                        <NavLink to="/sermon">Sermon</NavLink>
-                     </li>
-                     <li className="footer-nav__links">
-                        <NavLink to="/events">events</NavLink>
+                        <NavLink to="/sermons">Sermon</NavLink>
                      </li>
                      <li className="footer-nav__links">
                         <NavLink to="/blog">Blog</NavLink>
