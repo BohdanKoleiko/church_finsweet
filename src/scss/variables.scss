@@ -1,0 +1,55 @@
+$index: calc(1vh + 1vw);
+
+// COLORS
+$black: #161722;
+$black-50: #0d0d0d;
+$white: #fff;
+$white-opacity-015: #ffffff26;
+$grey: #f5f2f0;
+$orange-10: #fff5eb;
+$orange-50: #ffd2a4;
+$orange-60: #f2c79b;
+$orange-90: #ffd0a0;
+$orange-100: #dc9853;
+$red-100: #a54e2b;
+
+$primary-btn_txt-color: $black;
+$primary-btn_bg-color: $orange-50;
+$primary-btn_bg-color_hover: $orange-60;
+
+$secondary-btn_txt-color: $orange-50;
+$secondary-btn_bg-color: $black;
+$secondary-btn_txt-color_hover: $white;
+
+// PADDINGS
+$p8: 0.5rem;
+$p12: 0.75rem;
+$p16: 1rem;
+$p20: 1.25rem;
+$p24: 1.5rem;
+$p32: 2rem;
+$p40: 2.5rem;
+$p48: 3rem;
+$p61: 3.81rem;
+$p64: 4rem;
+$p72: 4.5rem;
+$p90: 5.6rem;
+$p128: 8rem;
+
+// MARGINS
+$m8: 0.5rem;
+$m16: 1rem;
+$m18: 1.125rem;
+$m24: 1.5rem;
+$m32: 2rem;
+$m48: 3rem;
+$m56: 3.5rem;
+$m64: 4rem;
+$m96: 6rem;
+$m128: 8rem;
+
+// TRANSITIONS
+$transition-all: all 0.3s linear;
+
+// BORDER RADIUS
+$radius-12: 12px;

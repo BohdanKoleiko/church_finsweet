@@ -1,0 +1,10 @@
+.app {
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+
+   &_overflow {
+      height: 100vh;
+      overflow: hidden;
+   }
+}

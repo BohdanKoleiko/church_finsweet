@@ -1,0 +1,31 @@
+@import "../../scss/variables";
+
+.form {
+   &__input-wrap {
+      display: flex;
+      border: 1px solid $white-opacity-015;
+      border-radius: $radius-12;
+   }
+
+   &__button,
+   &__subscr-email-input {
+      flex: 1 1 auto;
+   }
+
+   &__button {
+      max-width: 201px;
+   }
+
+   &__subscr-email-input {
+      background-color: transparent;
+      border: none;
+      border-top-left-radius: $radius-12;
+      border-bottom-left-radius: $radius-12;
+      color: $white;
+      padding: 0 20px;
+
+      &:focus {
+         outline: none;
+      }
+   }
+}

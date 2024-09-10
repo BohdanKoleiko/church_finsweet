@@ -1,0 +1,101 @@
+@import "./scss/variables";
+
+.contact-us {
+   &__hero {
+      max-width: 409px;
+      padding: 160px 0;
+
+      > .sup-heading {
+         color: $orange-50;
+      }
+   }
+}
+
+.contacts {
+   margin-top: $m128;
+
+   &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      column-gap: 128px;
+   }
+
+   &__adresses {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 300px;
+   }
+
+   &__title {
+      margin-bottom: $m32;
+   }
+
+   &__item {
+      > a {
+         font-weight: 700;
+         font-size: 24px;
+         letter-spacing: -0.01em;
+         text-transform: uppercase;
+         color: $black;
+         text-decoration: none;
+      }
+   }
+
+   &__phone,
+   &__mail {
+      display: block;
+   }
+
+   &__phone {
+      margin-bottom: $m8;
+   }
+
+   &__social-wrapper {
+      display: flex;
+      gap: 32px;
+   }
+
+   &__social-link {
+      height: 25px;
+      width: 25px;
+   }
+
+   &__social-image {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+   }
+}
+
+@media screen and (max-width: 1440px) {
+   .contacts {
+      &__grid {
+         column-gap: calc(128 * 100% / 1320);
+      }
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .contacts {
+      &__grid {
+         column-gap: calc(98 * 100% / 1320);
+      }
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .contacts {
+      &__grid {
+         grid-template-columns: minmax(320px, 600px);
+         grid-template-rows: repeat(2, auto);
+         row-gap: calc(98 * 100% / 1320);
+      }
+
+      &__adresses {
+         max-width: none;
+      }
+   }
+}

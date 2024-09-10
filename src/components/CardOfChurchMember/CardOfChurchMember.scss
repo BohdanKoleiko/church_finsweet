@@ -1,0 +1,69 @@
+@import "../../scss/variables";
+
+.church-member {
+   max-width: 302px;
+   min-width: 210px;
+   background-color: $grey;
+   padding-top: $p40;
+   padding-bottom: $p48;
+
+   &__name,
+   & {
+      text-align: center;
+   }
+
+   &__pictire-wrapper,
+   &__pictire {
+      border-radius: 100%;
+   }
+
+   &__pictire-wrapper {
+      width: 152px;
+      height: 152px;
+      padding: $p8;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: $m18;
+      overflow: hidden;
+      background-color: $white;
+   }
+
+   &__pictire {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+   &__name {
+      margin-bottom: $m8;
+   }
+
+   &__rank {
+      display: inline-block;
+      margin-bottom: $m16;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $black;
+      opacity: 0.7;
+   }
+
+   &__social-networks {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+   }
+
+   &__social {
+      display: block;
+      width: 16px;
+      height: 16px;
+   }
+
+   &__social-icon {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+   }
+}

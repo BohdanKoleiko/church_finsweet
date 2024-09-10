@@ -1,0 +1,17 @@
+.img-cards {
+   display: flex;
+   justify-content: center;
+   column-gap: 24px;
+
+   &_center {
+      align-items: center;
+   }
+
+   &_top {
+      align-items: flex-start;
+   }
+
+   @media screen and (max-width: 768px) {
+      column-gap: 10px;
+   }
+}

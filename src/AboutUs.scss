@@ -1,0 +1,108 @@
+@import "./scss/variables";
+
+.about-us {
+   height: 419px;
+}
+
+.welcome,
+.benefits,
+.church-members {
+   padding-top: $p128;
+}
+
+.welcome {
+   &__wysiwyg {
+      width: 59%;
+      min-width: 320px;
+   }
+
+   &__img-cards {
+      margin-bottom: $m64;
+   }
+
+   &__btn {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 205px;
+      margin: 0 auto -16px;
+   }
+
+   &__link {
+      display: block;
+      text-align: center;
+   }
+
+   @media screen and (max-width: 768px) {
+      &__btn {
+         margin: 0 auto;
+      }
+   }
+}
+
+.goals {
+   display: flex;
+   column-gap: 24px;
+   max-width: 767px;
+   margin: 0 auto;
+
+   @media screen and (max-width: 768px) {
+      flex-direction: column;
+   }
+}
+
+.benefits {
+   &__card-benefit {
+      &:not(:last-child) {
+         margin-bottom: $m96;
+      }
+   }
+
+   @media screen and (max-width: 768px) {
+      &__card-benefit {
+         &:not(:last-child) {
+            margin-bottom: $m64;
+         }
+      }
+   }
+}
+
+.church-members {
+   &__members-wrapper {
+      display: flex;
+      gap: 24px;
+   }
+
+   &__member {
+      flex: 0 1 100%;
+   }
+
+   @media screen and (max-width: 1200px) {
+      &__members-wrapper {
+         flex-wrap: wrap;
+         max-width: 955px;
+         margin: 0 auto;
+      }
+
+      &__member {
+         flex: 0 1 calc((100% / 3) - (24px / 1.5));
+      }
+   }
+
+   @media screen and (max-width: 768px) {
+      &__members-wrapper {
+         justify-content: center;
+      }
+
+      &__member {
+         flex: 0 1 calc((100% - 24px) / 2);
+      }
+   }
+
+   @media screen and (max-width: 480px) {
+      &__member {
+         flex: 0 1 100%;
+      }
+   }
+}

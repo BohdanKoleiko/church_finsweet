@@ -1,0 +1,35 @@
+@import "./scss/variables";
+
+.blog {
+   &__wrapper {
+      padding-top: $p128;
+   }
+
+   &__sup-title {
+      font-weight: 400;
+      font-size: $p16;
+      text-transform: uppercase;
+      margin-bottom: $p16;
+   }
+
+   &__btn {
+      width: 100%;
+      max-width: 205px;
+   }
+}
+
+.blog-posts {
+   padding-top: $p128;
+
+   &__sup-title {
+      margin-bottom: $p16;
+   }
+
+   &__blog-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 302px));
+      justify-items: center;
+      justify-content: center;
+      gap: 24px;
+   }
+}

@@ -1,0 +1,94 @@
+[
+   {
+      "id": 1,
+      "eventName": "100 random acts of kindness",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "startEventDate": "08/17/2024 23:39",
+      "endEventDate": "08/19/2024 20:31",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "img": "../images/events/1.jpg",
+      "imgAlt": "There are two people in costume of angels",
+      "finished": false,
+      "paragraphBlock": [
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+            "textType": "blockquote"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         }
+      ]
+   },
+   {
+      "id": 2,
+      "eventName": "Faith is a process, not a destination",
+      "startEventDate": "08/17/2024 23:39",
+      "endEventDate": "09/18/2024 22:14",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/2.jpg",
+      "imgAlt": "There is the Bible book that stood on special shelf",
+      "finished": false,
+      "paragraphBlock": [
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+            "textType": "blockquote"
+         }
+      ]
+   },
+   {
+      "id": 3,
+      "eventName": "there is nothing impossible",
+      "startEventDate": "08/16/2024 17:39",
+      "endEventDate": "08/18/2024 22:15",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/2.jpg",
+      "imgAlt": "There is the Bible book that stood on special shelf",
+      "finished": false,
+      "paragraphBlock": [
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         }
+      ]
+   },
+   {
+      "id": 4,
+      "eventName": "WATCH AND LISTEN TO OUR SERMONS",
+      "startEventDate": "08/17/2024 23:39",
+      "endEventDate": "09/18/2024 22:16",
+      "eventVenue": "No 233 Main St. New York, United States",
+      "eventDescr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "img": "../images/events/1.jpg",
+      "imgAlt": "There are two people in costume of angels",
+      "finished": false,
+      "paragraphBlock": [
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Pharetra sit amet aliquam id diam maecenas ultricies.",
+            "textType": "p"
+         },
+         {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat.",
+            "textType": "blockquote"
+         }
+      ]
+   }
+]

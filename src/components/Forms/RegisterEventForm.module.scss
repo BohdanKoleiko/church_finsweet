@@ -1,0 +1,96 @@
+@import "../../scss/variables.scss";
+
+.eventForm {
+   max-width: 522px;
+   background-color: $white;
+   padding: $p40 60px $p40 $p40;
+}
+
+.eventFormTitle {
+   margin-bottom: $m32;
+}
+
+.eventSchedule {
+   display: flex;
+   flex-wrap: wrap;
+   row-gap: 16px;
+   margin-bottom: $m32;
+}
+
+.eventScheduleDestination,
+.eventScheduleDate {
+   display: flex;
+}
+
+.eventScheduleDestination {
+   max-width: 218px;
+}
+
+.eventScheduleImageWrapper {
+   display: flex;
+   justify-content: center;
+   width: 24px;
+   min-width: 24px;
+   height: 24px;
+   margin-right: 10px;
+}
+.alignCenter {
+   align-items: center;
+}
+.alignBottom {
+   align-items: end;
+}
+
+.eventScheduleImage {
+   width: 80%;
+   height: 80%;
+}
+
+.eventScheduleText {
+   font-weight: 400;
+   font-size: 1rem;
+   line-height: 150%;
+}
+
+.input {
+   display: block;
+   border-bottom: 1px solid rgb(35, 37, 54, 0.2);
+   padding-bottom: 8px;
+
+   &:not(:last-child) {
+      margin-bottom: $m32;
+   }
+}
+
+.inputText {
+   display: inline-block;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 133%;
+   color: rgb(35, 37, 54, 0.6);
+   margin-bottom: 12px;
+}
+
+.inputUsername,
+.inputEmail {
+   width: 100%;
+   border: none;
+   background-color: transparent;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 150%;
+   color: #1d2130;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+.eventFormButton {
+   width: 100%;
+   max-width: 227px;
+
+   &:disabled {
+      background-color: gray;
+   }
+}

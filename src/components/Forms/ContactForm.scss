@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+
+.contact-form {
+   display: flex;
+   flex-direction: column;
+   row-gap: 12px;
+
+   &__input,
+   &__textarea {
+      width: 100%;
+      max-width: 624px;
+      outline: none;
+      border: none;
+      background-color: $white;
+
+      &,
+      &::placeholder {
+         font-weight: 400;
+         font-size: 16px;
+         line-height: 150%;
+         color: $black;
+      }
+   }
+
+   &__input {
+      padding: $p20;
+   }
+
+   &__textarea {
+      resize: none;
+      padding: $p24;
+   }
+}
