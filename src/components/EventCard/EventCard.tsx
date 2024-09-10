@@ -127,20 +127,37 @@ const EventCard: FC<EventCardProps> = ({
 
    return (
       <div
-         className={`event ${
-            preview ? "event-preview" : ""
-         } event_${backgroundColor} ${classNames}`}
+         className={`event ${preview ? "event-preview" : ""} event_${backgroundColor} ${
+            classNames ? classNames : ""
+         }`}
       >
-         {renderHeader()}
-         {eventDescription && <p className="event__descr">{eventDescription}</p>}
-         {renderEventSchedule()}
-         <div className="event__schedule">
-            <span className="event__start-day">
-               {String(startEvent.getDate()).padStart(2, "0")}
-            </span>
-            <span className="event__start-month">{startMonth}</span>
-         </div>
-         {children}
+         {preview ? (
+            <div className="event-preview__event-descr">
+               {renderHeader()}
+               {eventDescription && <p className="event__descr">{eventDescription}</p>}
+               {renderEventSchedule()}
+               <div className="event__schedule schedule">
+                  <span className="schedule__start-day">
+                     {String(startEvent.getDate()).padStart(2, "0")}
+                  </span>
+                  <span className="schedule__start-month">{startMonth}</span>
+               </div>
+               {children}
+            </div>
+         ) : (
+            <>
+               {renderHeader()}
+               {eventDescription && <p className="event__descr">{eventDescription}</p>}
+               {renderEventSchedule()}
+               <div className="event__schedule schedule">
+                  <span className="schedule__start-day">
+                     {String(startEvent.getDate()).padStart(2, "0")}
+                  </span>
+                  <span className="schedule__start-month">{startMonth}</span>
+               </div>
+            </>
+         )}
+
          {preview && eventImage && (
             <figure className="event__img-wrapper preview-img-container">
                <img className="preview-img-container__img" src={eventImage} alt={eventAltImg} />

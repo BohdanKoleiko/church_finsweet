@@ -4,6 +4,7 @@
    position: relative;
    overflow: hidden;
 
+   // Default non-preview event styles
    &:not(.event-preview) {
       max-width: 302px;
       padding: 80px 40px;
@@ -29,13 +30,12 @@
          transition: bottom 0.2s ease-out;
       }
 
-      &:hover {
-         &::before {
-            bottom: 0;
-         }
+      &:hover::before {
+         bottom: 0;
       }
    }
 
+   // Heading and description styles
    &__heading {
       margin-bottom: 16px;
    }
@@ -60,6 +60,7 @@
       }
    }
 
+   // Background colors for variations
    &_light-orange {
       background-color: $orange-10;
    }
@@ -68,10 +69,14 @@
       background-color: $white;
    }
 
+   // Schedule styles
    &__schedule {
       position: absolute;
    }
+}
 
+// Schedule styles
+.schedule {
    &__start-day,
    &__start-month {
       display: block;
@@ -92,7 +97,8 @@
    }
 }
 
-.event.event-preview {
+// Preview-specific styles
+.event-preview {
    display: grid;
    grid-template-columns: minmax(320px, 435px) minmax(320px, 845px);
    grid-template-rows: minmax(auto, 512px);
@@ -101,34 +107,33 @@
       top: 32px;
       right: 32px;
    }
-}
 
-.event-preview {
    &__event-info {
       position: relative;
       max-width: 435px;
       height: max-content;
       padding: 61px 90px;
    }
+
+   &__event-descr {
+      position: relative;
+      padding: $p61 $p90;
+   }
 }
 
+// General styles for schedule
 .schedule {
-   &__date {
-      margin-bottom: 16px;
-   }
-
    &__date,
    &__destination {
       display: flex;
       align-items: flex-start;
       line-height: 150%;
+      margin-bottom: 16px;
    }
 
    &__image {
       width: 20px;
-      min-width: 20px;
       height: 20px;
-      margin-top: 3px;
       margin-right: 16px;
 
       > img {
@@ -147,6 +152,7 @@
    }
 }
 
+// Image container for preview
 .preview-img-container {
    &__img {
       display: block;
@@ -156,53 +162,55 @@
    }
 }
 
+// Media queries
 @media screen and (max-width: 992px) {
-   .event.event-preview {
-      .event__schedule {
-         top: 16px;
-         right: 20px;
-      }
+   .event-preview .event__schedule {
+      top: 16px;
+      right: 20px;
    }
 
-   .event-preview {
-      &__event-info {
-         padding-left: calc($index * 4.911);
-         padding-right: calc($index * 4.911);
-         padding-bottom: calc($index * 3.293);
-      }
+   .event-preview__event-info {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 30px;
    }
 }
 
 @media screen and (max-width: 768px) {
-   .event {
-      &:not(.event-preview) {
-         padding-top: 60px;
-         padding-bottom: 40px;
+   .event:not(.event-preview) {
+      padding-top: 60px;
+      padding-bottom: 40px;
 
-         .event__schedule {
-            top: 12px;
-            right: 16px;
-         }
+      .event__schedule {
+         top: 12px;
+         right: 16px;
       }
 
-      &__start-day {
+      .event__start-day {
          font-size: 20px;
       }
 
-      &__start-month {
+      .event__start-month {
          font-size: 14px;
       }
    }
 
-   .event.event-preview {
-      grid-template-columns: 1fr;
-      grid-template-rows: calc($index * 32) minmax(auto, max-content);
-   }
-
    .event-preview {
-      &__event-info {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto max-content;
+
+      .event-preview__event-info {
          grid-row-start: 2;
          max-width: none;
+      }
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .event-preview {
+      &__event-descr {
+         padding-left: $p40;
+         padding-right: $p40;
       }
    }
 }
