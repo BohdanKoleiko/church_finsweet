@@ -11,7 +11,7 @@ interface ButtonProps {
    logo?: string;
    classNames?: string;
    disabled?: boolean;
-   onClick?: any;
+   onClick?: any | null;
 }
 
 const Button = function ({
@@ -54,7 +54,10 @@ const Button = function ({
             if (link) {
                handleRouteRedirection(link);
             }
-            onClick();
+
+            if (onClick) {
+               onClick();
+            }
          }}
          disabled={disabled}
       >
@@ -70,7 +73,10 @@ const Button = function ({
             if (link) {
                handleRouteRedirection(link);
             }
-            onClick();
+
+            if (onClick) {
+               onClick();
+            }
          }}
          disabled={disabled}
       >
