@@ -32,10 +32,10 @@ const Blog = function ({ setBGColor }) {
             <div className="container">
                <div className="blog__wrapper">
                   <Heading
+                     classNames="title"
                      headingTxt="most recent post"
                      HeadingType="h2"
                      textPosition="center"
-                     classNames="title"
                   >
                      <div className="blog__sup-title">OUR BLOG</div>
                   </Heading>
@@ -51,13 +51,13 @@ const Blog = function ({ setBGColor }) {
                         preview
                         writer={`by ${blogPosts[0].author}`}
                         releaseDate={blogPosts[0].publishDate}
-                        key={crypto.randomUUID()}
+                        key={blogPosts[0].id}
                      >
                         <Button
+                           classNames="blog__btn"
                            btn="primary"
                            btnPadding="p24"
                            text="Reed More"
-                           classNames="blog__btn"
                            link={`./${blogPosts[0].id}`}
                         />
                      </BlogCard>
@@ -70,10 +70,10 @@ const Blog = function ({ setBGColor }) {
             <div className="container">
                <div>
                   <Heading
+                     classNames="title"
                      headingTxt="most recent post"
                      HeadingType="h2"
                      textPosition="center"
-                     classNames="title"
                   ></Heading>
 
                   <div className="blog-posts__blog-cards">
