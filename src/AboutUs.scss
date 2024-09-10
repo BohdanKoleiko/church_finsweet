@@ -33,6 +33,12 @@
       display: block;
       text-align: center;
    }
+
+   @media screen and (max-width: 768px) {
+      &__btn {
+         margin: 0 auto;
+      }
+   }
 }
 
 .goals {
@@ -40,6 +46,10 @@
    column-gap: 24px;
    max-width: 767px;
    margin: 0 auto;
+
+   @media screen and (max-width: 768px) {
+      flex-direction: column;
+   }
 }
 
 .benefits {
