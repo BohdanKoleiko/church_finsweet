@@ -35,14 +35,36 @@ const CardOfChurchMember = function ({
          <span className="church-member__rank">{memberRank}</span>
 
          <div className="church-member__social-networks">
-            <a className="church-member__social" href={facebookLink}>
-               <img src="./images/icons/Facebook.svg" alt="facebook logo" />
+            <a
+               className="church-member__social"
+               href={facebookLink}
+               target="_blank"
+               rel="noreferrer"
+            >
+               <img
+                  className="church-member__social-icon"
+                  src="./images/icons/facebook_black_logo.svg"
+                  alt="facebook logo"
+               />
             </a>
-            <a className="church-member__social" href={xLink}>
-               <img src="./images/icons/x_logo_twitter_new_brand_icon.svg" alt="x logo" />
+            <a className="church-member__social" href={xLink} target="_blank" rel="noreferrer">
+               <img
+                  className="church-member__social-icon"
+                  src="./images/icons/x_black_logo.svg"
+                  alt="x logo"
+               />
             </a>
-            <a className="church-member__social" href={linkedinLink}>
-               <img src="./images/icons/Linkedin.svg" alt="linkedin logo" />
+            <a
+               className="church-member__social"
+               href={linkedinLink}
+               target="_blank"
+               rel="noreferrer"
+            >
+               <img
+                  className="church-member__social-icon"
+                  src="./images/icons/linkedIn_black_logo.svg"
+                  alt="linkedin logo"
+               />
             </a>
          </div>
       </div>

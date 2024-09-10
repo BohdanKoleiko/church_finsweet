@@ -17,6 +17,29 @@ import bg2 from "./images/a-statue-holding-a-holy-book.jpg";
 import bg3 from "./images/man-people-woman-connection.jpg";
 import bg4 from "./images/woman-in-blue-tank-top-and-man-in-red-shirt-painting.jpg";
 
+const cards = [
+   {
+      image: bg1,
+      title: "WATCH AND LISTEN TO OUR SERMONS",
+      text: "Watch and listen to our sermons for inspiring messages that uplift your spirit and deepen your faith. Join us online to connect with meaningful teachings and worship from wherever you are.",
+   },
+   {
+      image: bg2,
+      title: "WATCH AND LISTEN TO OUR SERMONS",
+      text: "Watch and listen to our sermons for inspiring messages that uplift your spirit and deepen your faith. Join us online to connect with meaningful teachings and worship from wherever you are.",
+   },
+   {
+      image: bg3,
+      title: "WATCH AND LISTEN TO OUR SERMONS",
+      text: "Watch and listen to our sermons for inspiring messages that uplift your spirit and deepen your faith. Join us online to connect with meaningful teachings and worship from wherever you are.",
+   },
+   {
+      image: bg4,
+      title: "WATCH AND LISTEN TO OUR SERMONS",
+      text: "Watch and listen to our sermons for inspiring messages that uplift your spirit and deepen your faith. Join us online to connect with meaningful teachings and worship from wherever you are.",
+   },
+];
+
 const Home = function ({ setBGColor }) {
    const blogURL = "/datas/blogs.json";
    const eventURL = "./datas/events.json";
@@ -27,6 +50,30 @@ const Home = function ({ setBGColor }) {
       gettingData({ setter: setBlogPosts, url: blogURL });
       gettingData({ setter: setEvent, url: eventURL });
    }, []);
+
+   const [isHover, setIsHover] = useState<{ status: boolean; elementIndex: number | null }>({
+      status: false,
+      elementIndex: null,
+   });
+
+   const handleMouseEnter = (index) => {
+      setIsHover({ ...isHover, status: true, elementIndex: index });
+   };
+   const handleMouseLeave = () => {
+      setIsHover({ ...isHover, status: false, elementIndex: null });
+   };
+
+   const textBlockStyles = (index) => {
+      const textHeight = document.querySelectorAll(".card__wysiwyg")[index]?.scrollHeight;
+
+      if (window.innerWidth > 768) {
+         return {
+            height: index === isHover.elementIndex ? `${textHeight}px` : "0px",
+         };
+      } else {
+         return { height: `${textHeight}px` };
+      }
+   };
 
    return (
       <main className="main" onLoad={() => setBGColor("white")}>
@@ -57,10 +104,11 @@ const Home = function ({ setBGColor }) {
                   <div className="sup-title">Welcome to our CHURCH</div>
                </Heading>
                <p className="wysiwyg wysiwyg_margin-56 wysiwyg_txt-center welcome__wysiwyg">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum.
+                  Welcome to our church, a community built on love and compassion. Here, you'll find
+                  a warm, supportive environment where faith, kindness, and spiritual growth are
+                  central. Whether you're new or a long-time member, we invite you to join us in
+                  worship, prayer, and service as we walk together in faith, guided by love and a
+                  desire to uplift one another.
                </p>
 
                <Button
@@ -80,33 +128,34 @@ const Home = function ({ setBGColor }) {
             <div className="container">
                <div className="benefits-of-joining__wrapper">
                   <Heading
+                     classNames="benefits-of-joining__title"
                      HeadingType="h2"
                      headingTxt="THE benefits of joining our church"
                      textPosition="center"
-                     classNames="benefits-of-joining__title"
                   >
                      <div className="sup-title">Watch and listen</div>
                   </Heading>
 
                   <div className="cards-wrapper">
-                     {[bg1, bg2, bg3, bg4].map((bg, index) => (
+                     {cards.map((card, index) => (
                         <div
                            className="card"
                            key={index}
                            style={{
-                              background: `url(${bg}) center center/cover no-repeat`,
+                              background: `url(${card.image}) center center/cover no-repeat`,
                            }}
+                           onMouseEnter={() => handleMouseEnter(index)}
+                           onMouseLeave={handleMouseLeave}
                         >
                            <div className="card__content-wrapper">
                               <Heading
-                                 HeadingType="h5"
-                                 headingTxt="WATCH AND LISTEN TO OUR SERMONS"
-                                 headingColor="white"
                                  classNames="card__title"
+                                 HeadingType="h5"
+                                 headingTxt={card.title}
+                                 headingColor="white"
                               />
-                              <p className="wysiwyg card__wysiwyg">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                 eiusmod tempor incididunt ut.
+                              <p className="wysiwyg card__wysiwyg" style={textBlockStyles(index)}>
+                                 {card.text}
                               </p>
                            </div>
                         </div>
@@ -119,44 +168,43 @@ const Home = function ({ setBGColor }) {
          <section className="seremon-preview">
             <div className="container">
                <Heading
+                  classNames="seremon-preview__title"
                   headingTxt="join us and become part of something great"
                   HeadingType="h2"
                   textPosition="center"
-                  classNames="seremon-preview__title"
                >
                   <div className="sup-title">Upcoming SERMONS</div>
                </Heading>
 
-               <div className="seremon-preview__event">
-                  {event && (
-                     <EventCard
-                        startEventDate={event[event.length - 1].startEventDate}
-                        endEventDate={event[event.length - 1].endEventDate}
-                        eventName={event[event.length - 1].eventName}
-                        eventVenue={event[event.length - 1].eventVenue}
-                        eventDescription={event[event.length - 1].eventDescr}
-                        preview
-                        eventImage={event[event.length - 1].img}
-                        eventAltImg={event[event.length - 1].imgAlt}
-                     >
-                        <Button
-                           btn="secondary"
-                           btnType="button"
-                           btnPadding="p24"
-                           text="Register"
-                           classNames="seremon-preview__event-button"
-                           link={`sermons/${event[event.length - 1].id}`}
-                        />
-                     </EventCard>
-                  )}
-               </div>
+               {event && (
+                  <EventCard
+                     classNames="seremon-preview__event"
+                     startEventDate={event[event.length - 1].startEventDate}
+                     endEventDate={event[event.length - 1].endEventDate}
+                     eventName={event[event.length - 1].eventName}
+                     eventVenue={event[event.length - 1].eventVenue}
+                     eventDescription={event[event.length - 1].eventDescr}
+                     preview
+                     eventImage={event[event.length - 1].img}
+                     eventAltImg={event[event.length - 1].imgAlt}
+                  >
+                     <Button
+                        classNames="seremon-preview__event-button"
+                        btn="secondary"
+                        btnType="button"
+                        btnPadding="p24"
+                        text="Register"
+                        link={`sermons/${event[event.length - 1].id}`}
+                     />
+                  </EventCard>
+               )}
 
                <Button
+                  classNames="home-hero__all-sermons-button"
                   btn="text"
                   text="View all Sermons"
                   link="sermons"
                   logo={arrow}
-                  classNames="home-hero__all-sermons-button"
                />
             </div>
          </section>

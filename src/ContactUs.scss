@@ -45,7 +45,7 @@
 
    &__phone,
    &__mail {
-      display: inline-block;
+      display: block;
    }
 
    &__phone {
@@ -67,5 +67,35 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+   }
+}
+
+@media screen and (max-width: 1440px) {
+   .contacts {
+      &__grid {
+         column-gap: calc(128 * 100% / 1320);
+      }
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .contacts {
+      &__grid {
+         column-gap: calc(98 * 100% / 1320);
+      }
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .contacts {
+      &__grid {
+         grid-template-columns: minmax(320px, 600px);
+         grid-template-rows: repeat(2, auto);
+         row-gap: calc(98 * 100% / 1320);
+      }
+
+      &__adresses {
+         max-width: none;
+      }
    }
 }
