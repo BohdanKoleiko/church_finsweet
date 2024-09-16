@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import Button from "../Button/Button.tsx";
 import "./ContactForm.scss";
 
@@ -28,7 +28,7 @@ const ContactForm = function ({
    inputFilds,
    textareas,
 }: ContactFormProps) {
-   const [formData, setFormData] = useState({ inputFilds: {}, textareas: {} });
+//   const [formData, setFormData] = useState({ inputFilds: {}, textareas: {} });
 
    const handlerFormSubmit = function (event: { preventDefault: () => void }) {
       event.preventDefault();
