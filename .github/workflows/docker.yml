@@ -20,7 +20,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        IMAGE_TAG=ghcr.io/church_finsweet/church_finsweet-frontend:$(date +%s)
+        IMAGE_TAG=ghcr.io/${{ github.repository }}/church_finsweet-frontend:$(date +%s)
         docker build . --file Dockerfile --tag $IMAGE_TAG
         echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
         echo "Built image with tag: $IMAGE_TAG"
