@@ -1,0 +1,35 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Log in to GitHub Container Registry
+      run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Build the Docker image
+      run: |
+        IMAGE_TAG=ghcr.io/${{ github.repository }}/Church_finsweet-frontend:$(date +%s)
+        docker build . --file Dockerfile --tag $IMAGE_TAG
+        echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+        echo "Built image with tag: $IMAGE_TAG"
+
+    - name: List Docker images
+      run: docker images
+
+    - name: Push the Docker image
+      run: |
+        echo "Pushing image with tag: ${{ env.IMAGE_TAG }}"
+        docker push ${{ env.IMAGE_TAG }}
+
